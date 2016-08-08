@@ -1,11 +1,17 @@
-language: node_js
-node_js:
-  - "6"
-  - "6.1"
-  - "5.11"  
-  - "iojs"
-before_script:
-  - npm install -g gulp
-script: gulp
 notifications:
   slack: hello-hero:emKcbcfIRRRwK3alfTTlei9D
+language: node_js
+node_js:
+    - "4.1.1"
+services:
+- docker
+before_install:
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+install:
+- docker build -t hellohero/app .
+after_success:
+- docker tag hellohero/app:latest hellohero/app:v1
+- docker push hellohero/app
+branches:
+  only:
+    - master
