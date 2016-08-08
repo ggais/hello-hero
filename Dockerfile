@@ -12,6 +12,7 @@ COPY . /usr/src/app/
 RUN rm -rf /usr/src/app/node_modules
 RUN chown -R node:node /usr/src/app
 
+# compile app
 USER node
 RUN touch /home/node/.mean
 RUN npm install
