@@ -4,6 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 RUN npm install -g mean-cli bower gulp
+RUN npm install --save-dev gulp
 
 RUN	groupadd -r node \
 &&	useradd -r -m -g node node
