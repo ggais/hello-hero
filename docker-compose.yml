@@ -8,7 +8,8 @@ web:
   volumes:
    - ./app:/home/mean/app
   environment: 
-   NODE_ENV: production
+   NODE_ENV: "production"
+   MONGODB_ADDRESS: "db"
 db:
   image: mongo:latest
   ports: 

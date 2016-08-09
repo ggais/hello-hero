@@ -6,7 +6,7 @@ var port = process.env.PORT || 3000; // set our port
 
 
 // get all data/stuff of the body (POST) parameters
-mongoose.connect('mongodb://localhost/helloHero');
+mongoose.connect('mongodb://"+process.env.MONGODB_ADDRESS+":27017/helloHero');
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 // app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
