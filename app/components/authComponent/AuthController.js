@@ -1,6 +1,6 @@
 angular.module('helloHero.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location, Auth) {
+.controller('AuthController', ['$scope', '$window', '$location', 'Auth', function ($scope, $window, $location, Auth) {
 	$scope.user = {};
 	$scope.validUser = true;
 	$scope.tries = 6;
@@ -44,4 +44,4 @@ angular.module('helloHero.auth', [])
 	  $window.localStorage.setItem('com.helloHero', '');
 	  $location.path('/signin');
 	}
-});
+}]);
