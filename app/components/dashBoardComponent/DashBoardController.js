@@ -8,7 +8,7 @@ angular.module('helloHero.dashBoard', [])
 	$scope.isLoggedIn = Auth.isAuth();
 	$scope.alreadyExists = false;
 
-	$scope.init();
+	
 
 	$scope.init = function () {
 		
@@ -20,7 +20,7 @@ angular.module('helloHero.dashBoard', [])
 
 
 
-
+	$scope.init();
 	
 
 	if($location.$$path === '/logout'){
