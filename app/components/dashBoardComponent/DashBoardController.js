@@ -1,6 +1,6 @@
 angular.module('helloHero.dashBoard', [])
 
-.controller('DashBoardController', function ($scope, $window, $location, Auth) {
+.controller('DashBoardController', ['$scope', '$window', '$location', 'Auth', function ($scope, $window, $location, Auth) {
 	$scope.user = {};
 	$scope.validUser = true;
 	$scope.tries = 6;
@@ -28,4 +28,4 @@ angular.module('helloHero.dashBoard', [])
 	  $location.path('/signin');
 	}
 	
-});
+}]);

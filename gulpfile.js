@@ -7,6 +7,8 @@ var print = require('gulp-print');
 var Q = require('q');
 var mocha = require('gulp-mocha');
 var KarmaServer = require('karma').Server;
+var streamqueue = require('streamqueue');
+
 // == PATH STRINGS ========
 
 var paths = {
@@ -25,37 +27,53 @@ var paths = {
 
 var pipes = {};
 
+// orders vender scripts like jquery and angular
 pipes.orderedVendorScripts = function() {
     return plugins.order(['jquery.js', 'angular.js']);
 };
 
+// orders client angular scripts for controllers, services, factories etc.
 pipes.orderedAppScripts = function() {
     return plugins.angularFilesort();
 };
 
+// minifies filenames
 pipes.minifiedFileName = function() {
     return plugins.rename(function (path) {
         path.extname = '.min' + path.extname;
     });
 };
 
+// lints app scripts
 pipes.validatedAppScripts = function() {
     return gulp.src(paths.scripts)
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 };
 
+// --------------- DEV ENVIRONMENT SPECIFIC ------------------- // 
+
+// builds app scripts for dev environment
 pipes.builtAppScriptsDev = function() {
     return pipes.validatedAppScripts()
         .pipe(gulp.dest(paths.distDev));
 };
 
+//  builds vendor scripts
+pipes.builtVendorScriptsDev = function() {
+    return gulp.src(bowerFiles())
+        .pipe(gulp.dest('dist.dev/bower_components'));
+};
+
+// --------------- PROD ENVIRONMENT SPECIFIC ------------------- //
+
+// builds app scripts for production environment
 pipes.builtAppScriptsProd = function() {
     var scriptedPartials = pipes.scriptedPartials();
     var validatedAppScripts = pipes.validatedAppScripts();
 
-    return es.merge(scriptedPartials, validatedAppScripts)
-        .pipe(pipes.orderedAppScripts())
+    return streamqueue({ objectMode: true }, validatedAppScripts, scriptedPartials)
+        // .pipe(pipes.orderedAppScripts())
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
             .pipe(plugins.uglify())
@@ -63,9 +81,19 @@ pipes.builtAppScriptsProd = function() {
         .pipe(gulp.dest(paths.distScriptsProd));
 };
 
-pipes.builtVendorScriptsDev = function() {
-    return gulp.src(bowerFiles())
-        .pipe(gulp.dest('dist.dev/bower_components'));
+pipes.scriptedPartials = function() {
+    return pipes.validatedPartials()
+        .pipe(plugins.htmlhint.failReporter())
+        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
+        .pipe(plugins.ngHtml2js({
+            moduleName: "helloHero"
+        }));
+};
+
+pipes.validatedPartials = function() {
+    return gulp.src(paths.partials)
+        .pipe(plugins.htmlhint({'doctype-first': false}))
+        .pipe(plugins.htmlhint.reporter());
 };
 
 pipes.builtVendorScriptsProd = function() {
@@ -82,25 +110,13 @@ pipes.validatedDevServerScripts = function() {
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 };
 
-pipes.validatedPartials = function() {
-    return gulp.src(paths.partials)
-        .pipe(plugins.htmlhint({'doctype-first': false}))
-        .pipe(plugins.htmlhint.reporter());
-};
 
 pipes.builtPartialsDev = function() {
     return pipes.validatedPartials()
         .pipe(gulp.dest(paths.distDev));
 };
 
-pipes.scriptedPartials = function() {
-    return pipes.validatedPartials()
-        .pipe(plugins.htmlhint.failReporter())
-        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
-        .pipe(plugins.ngHtml2js({
-            moduleName: "helloHero"
-        }));
-};
+
 
 pipes.builtStylesDev = function() {
     return gulp.src(paths.styles)

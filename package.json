@@ -10,11 +10,13 @@
     "event-stream": "^3.2.2",
     "gulp": "^3.8.10",
     "gulp-angular-filesort": "^1.0.4",
+    "gulp-angular-templatecache": "^2.0.0",
     "gulp-concat": "^2.4.3",
     "gulp-connect": "^4.2.0",
     "gulp-htmlhint": "0.0.9",
     "gulp-htmlmin": "^1.0.0",
     "gulp-inject": "^1.1.1",
+    "gulp-insert": "^0.5.0",
     "gulp-jshint": "^1.9.2",
     "gulp-livereload": "^3.7.0",
     "gulp-load-plugins": "^0.8.0",
@@ -44,7 +46,8 @@
     "phantomjs-polyfill": "0.0.2",
     "protractor": "^1.1.1",
     "shelljs": "^0.2.6",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "streamqueue": "^1.1.1"
   },
   "scripts": {
     "postinstall": "bower install",
