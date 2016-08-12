@@ -17,17 +17,23 @@ see [CONTRIBUTING.md](https://github.com/Inserso/hello-hero/blob/master/CONTRIBU
 2. Ensure you have node installed
 3. Run `npm install` in the root directory (this will install bower dependencies too)
 4. Ensure you have mongodb installed and running: https://docs.mongodb.com/master/installation
-5. Run gulp task -- see Gulp Task sections
+5. Run gulp task -- see Gulp Task sections (run gulp then gulp watch-dev or gulp watch-prod)
 
 ## Project Structure
 
-    /dhs-flash
+    / hello-hero
     |
     |---- package.json
     |
     |---- bower.json
     |
     |---- gulpfile.js
+    |
+    |---- Dockerfile
+    |
+    |---- docker-compose.yml
+    |
+    |---- .travis.yml
     |
     |---- /app
     |     |
@@ -45,7 +51,11 @@ see [CONTRIBUTING.md](https://github.com/Inserso/hello-hero/blob/master/CONTRIBU
     |
     |---- /server
     |     |  
-    |     |---- routes.js
+    |     |---- /config
+    |     |     | ------ routes.js
+    |     |     | ------ middleware.js
+    |     |     | ------ helpers.js
+    |     |
     |     |---- server.js
     |   
     |---- /dist.dev
