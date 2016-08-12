@@ -4,6 +4,7 @@ var User = require('./userModel.js');
 
 var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
+var getUsers = Q.nbind(User.find, User);
 
 module.exports = {
   signin: function (req, res, next) {
@@ -82,6 +83,20 @@ module.exports = {
         });
     }
   }, 
+
+  getAllUsers: function (req, res, next) {
+    getUsers({})
+      .then(function (user) {
+        if (!user) {
+          next(new Error('No users exist'));
+        } else {
+          res.status(200).json(user);
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
+  }
 
   
 };

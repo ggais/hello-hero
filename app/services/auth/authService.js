@@ -1,4 +1,4 @@
-angular.module('helloHero.services', [])
+angular.module('authService', [])
 .factory('Auth', ['$http', '$location', '$window', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user

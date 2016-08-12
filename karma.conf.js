@@ -21,7 +21,7 @@ module.exports = function (config) {
       'app/**/*.js',
 
       // our spec files - in order of the README
-      'tests/**/*.js',
+      'app/components/**/*Spec.js',
     ],
 
     // test results reporter to use

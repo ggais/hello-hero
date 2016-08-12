@@ -12,7 +12,7 @@ var streamqueue = require('streamqueue');
 // == PATH STRINGS ========
 
 var paths = {
-    scripts: 'app/**/*.js',
+    scripts: ['app/**/*.js', '!app/components/**/*Spec.js'],
     styles: ['./app/**/*.css', './app/**/*.scss'],
     images: './images/**/*',
     index: './app/index.html',

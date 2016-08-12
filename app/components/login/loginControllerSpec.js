@@ -1,6 +1,6 @@
 'use strict';
 
-describe('AuthController', function () {
+describe('LoginController', function () {
   var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth;
 
   // using angular mocks, we can inject the injector
@@ -20,7 +20,7 @@ describe('AuthController', function () {
 
     // used to create our AuthController for testing
     createController = function () {
-      return $controller('AuthController', {
+      return $controller('LoginController', {
         $scope: $scope,
         $window: $window,
         $location: $location,

@@ -1,6 +1,5 @@
-angular.module('helloHero.auth', [])
-
-.controller('AuthController', ['$scope', '$window', '$location', 'Auth', function ($scope, $window, $location, Auth) {
+angular.module('loginController', [])
+.controller('LoginController', ['$scope', '$window', '$location', 'Auth', function ($scope, $window, $location, Auth) {
 	$scope.user = {};
 	$scope.validUser = true;
 	$scope.tries = 6;

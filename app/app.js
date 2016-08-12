@@ -1,8 +1,9 @@
 angular.module('helloHero', [
 'ui.router', 
-'helloHero.auth',
-'helloHero.services',
-'helloHero.dashBoard'
+'loginController',
+'dashBoardController',
+'authService',
+'userService'
 ])
 
 .config(['$stateProvider', '$urlRouterProvider',
@@ -11,17 +12,17 @@ angular.module('helloHero', [
         $stateProvider
           .state('home', {
               url: '/',
-              templateUrl: 'components/authComponent/signin.html',
-              controller: 'AuthController'
+              templateUrl: 'components/login/signin.html',
+              controller: 'LoginController'
           })
           .state('signup', {
               url: '/signup',
-              templateUrl: 'components/authComponent/signup.html',
-              controller: 'AuthController'
+              templateUrl: 'components/login/signup.html',
+              controller: 'LoginController'
           })
           .state('dashBoard', {
               url: '/dashBoard',
-              templateUrl: 'components/dashBoardComponent/dashBoard.html',
+              templateUrl: 'components/dashBoard/dashBoard.html',
               controller: 'DashBoardController'
           });
     }]);
