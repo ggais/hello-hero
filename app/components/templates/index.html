@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>HelloHero</title>
+
+<meta content="HelloHero" property="og:title">
+<meta content="" name="description">
+<meta content="" property="og:description">
+
+<!-- Fonts --> 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,700,600italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<!-- CSS --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="_inc/css/hello-hero.css" rel="stylesheet" >
+
+<!-- Favorite Icon --> 
+<link href="_inc/img/favicon.ico" rel="shortcut icon">
+
+<!-- JavaScripts -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+
+<div id="page-home" class="wrapper">
+
+    <!-- Navigation --> 
+    <nav role="navigation">
+        <div class="container-fluid">
+                
+            <div class="navbar navbar-inverse">
+                <span class="sr-only">Navigation</span>
+                
+                <div class="navbar-header">
+                    <!-- Responsive - Collapsible Navigation Button -->
+                    <button id="btn_Main" type="button" class="navbar-toggle btn btn-navbar pull-right collapsed" 
+                        data-target="#nav_Main" data-toggle="collapse"
+                        aria-expanded="false" aria-controls="nav_Main">
+                        <span class="sr-only">Toggle Main Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- // End Collapsible Navigation Button--> 
+                    
+                    <a class="navbar-brand" href="index.html" title="Return to Main page">Hello<strong>Hero</strong></a>
+                </div>
+                
+                <!-- Responsive - Collapsible Navigation -->
+                <div id="nav_Main" class="nav-collapse collapse pull-right">
+                    <ul class="nav nav-pills nav-lvl1">
+                        <li>
+                            <a href="#">Product</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Pricing</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Join for Free</a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#LogIn">Log In</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- // End Collapsible Navigation -->
+            </div>
+            
+        </div>
+    </nav>
+    <!-- // End Navigation -->
+
+<main>
+	<header>
+    	<div class="banner-text">
+            <h2>Recognize the <strong>heroes</strong> <br />
+            that surround you everyday!</h2>
+            <button class="btn btn-highlight btn-lg" data-toggle="modal" data-target="#LogIn">Join for Free</button>
+        </div>
+    </header>
+
+	<!-- Section for Content Information -->
+	<section class="content-info">
+    
+    	<div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                	<div class="icn-info">
+                    	<span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <h3>Increase Employee Morale</h3>
+                </div>
+                
+                <div class="col-xs-4">
+                	<div class="icn-info">
+                    	<span class="glyphicon glyphicon-briefcase"></span>
+                    </div>
+                    <h3>Increase Productivity</h3>
+                </div>
+                
+                <div class="col-xs-4">
+                	<div class="icn-info">
+                    	<span class="glyphicon glyphicon-scale"></span>
+                    </div>
+                    <h3>Increase Retention</h3>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+	<!-- Section for Content Information -->
+    
+    <section>
+    	<!-- Modal Pop Up for Log In / Sign Up-->
+        <div class="modal fade" id="LogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myModalLabel">Log In</h2>
+              </div>
+              
+              <div class="modal-body">
+                  <form>
+                  	<div class="row">
+                    	<div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Username or Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                      	</div>
+                    	<div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <a href="#"><small>Forgot Password?</small></a>
+                          </div>
+                      	</div>
+					</div>
+                      <button type="submit" class="btn btn-primary pull-right">Log In</button>
+                      <div class="clearfix"></div>
+                </form>         
+                
+              	<hr>
+                
+                <div class="well">
+                    <h3>Don't have an account yet? Join for Free!</h3>
+                      <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail2">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                          </div>
+                          <div class="row">
+                          
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputPassword2">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                              </div>
+                          </div>
+                          <div class="col-sm-6"
+                              <div class="form-group">
+                                <label for="exampleInputPassword3">Re-type Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Re-type Password">
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-highlight pull-right"><span class="glyphicon glyphicon-edit"></span> Create My Account</button>
+                          <div class="clearfix"></div>
+                    </form> 
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+    	<!-- End Modal Pop Up for Log In / Sign Up-->
+    </section>
+    
+    <section>
+    
+    	<div class="container">
+    	<!-- Other content can be put here -->
+        </div>
+        
+    </section>
+    
+</main>
+
+<footer>
+
+        <p>Powered by the <a href="#" alt="Visit the Inserso Team website">Inserso Team</a>.</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
