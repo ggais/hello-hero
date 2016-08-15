@@ -519,7 +519,7 @@ header .banner-text h2 {
 /* Content
 -------------------------------------------------- */
 main {
-	top: 0px;
+	margin-top: 0px;
 }
 
 .content-info {
