@@ -1,6 +1,10 @@
 <div id="signup">
   <h1>signup</h1>
   <form name="signupForm" ng-submit="signupForm.$valid && signup()">
+      <label for="username">First Name</label>
+       <input type="text" id="firstname" name="firstname" ng-model="user.firstname" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" required  />
+       <label for="username">Last Name</label>
+       <input type="text" id="lastname" name="lastname" ng-model="user.lastname" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" required  />
   		<label for="username">Username</label>
        <input type="text" id="username" name="username" ng-model="user.username" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" required  />
    <span ng-show="signupForm.username.$error.required && signupForm.username.$dirty">required</span>

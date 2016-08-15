@@ -29,10 +29,12 @@ angular.module('loginController', [])
 	};
 
 	$scope.signup = function () {
-	  console.log('signup running...');
+		$window.localStorage.setItem('user', '');
+	  $window.localStorage.setItem('com.helloHero', '');
 	  Auth.signup($scope.user)
 	    .then(function (token) {
 	      $window.localStorage.setItem('com.helloHero', token);
+	      $window.localStorage.setItem('user', $scope.user.username);
 	      $location.path('/dashBoard');
 	    })
 	    .catch(function (error) {

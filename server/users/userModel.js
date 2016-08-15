@@ -29,7 +29,8 @@ var UserSchema = new mongoose.Schema({
   salt: String,
   teams: {
     type: Array,
-    required: false
+    required: false,
+    default: []
   },
   admin: {
     type: Boolean,
