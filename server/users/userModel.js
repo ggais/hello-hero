@@ -11,10 +11,21 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
+  firstName: {
+    type: String,
+    required: false
+  },
+
+  lastName: {
+    type: String,
+    required: false
+  },   
+
   password: {
     type: String,
     required: true
   },
+
   salt: String,
   teams: {
     type: Array,
@@ -22,7 +33,14 @@ var UserSchema = new mongoose.Schema({
   },
   admin: {
     type: Boolean,
-    require: true
+    required: false,
+    default: false
+  },
+  
+  badges: {
+    type: Array,
+    required: false,
+    default: []
   } 
   
 });

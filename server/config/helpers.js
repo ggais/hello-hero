@@ -9,7 +9,7 @@ module.exports = {
   errorHandler: function (error, req, res, next) {
     // send error message to client
     // message for gracefull error handling on app
-    res.send(500, {error: error.message});
+    res.status(500).send({error: error.message});
   },
 
   decode: function (req, res, next) {
@@ -17,7 +17,7 @@ module.exports = {
     var user;
 
     if (!token) {
-      return res.send(403); // send forbidden if a token is not provided
+      return res.status(403); // send forbidden if a token is not provided
     }
 
     try {

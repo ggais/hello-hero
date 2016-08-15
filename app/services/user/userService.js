@@ -8,7 +8,6 @@ angular.module('userService', [])
   // after you signin/signup open devtools, click resources,
   // then localStorage and you'll see your token from the server
   var getAllUsers = function () {
-
     return $http({
       method: 'GET',
       url: '/api/users'
@@ -18,7 +17,31 @@ angular.module('userService', [])
     });
   };
 
+  var getUser = function (username) {
+    console.log(username)
+    return $http({
+      method: 'GET',
+      url: '/api/users/' + username
+    })
+    .then(function (resp) {
+      return resp;
+    });
+  };
+
+  var giveRecognition = function (badge, receiver) {
+    return $http({
+      method: 'PUT',
+      url: '/api/users/' + receiver,
+      data: badge
+    })
+    .then(function (resp) {
+      return resp;
+    });
+  };
+
   return {
-    getAllUsers: getAllUsers
+    getAllUsers: getAllUsers,
+    getUser: getUser,
+    giveRecognition: giveRecognition
   };
 }]);

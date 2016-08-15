@@ -96,6 +96,41 @@ module.exports = {
       .fail(function (error) {
         next(error);
       });
+  },
+
+  getUser: function (req, res, next) {
+    findUser({username: req.params.username})
+      .then(function (user) {
+        if (!user) {
+          next(new Error('No users exist'));
+        } else {
+          res.status(200).json(user);
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
+  },
+
+  editUser: function (req, res, next) {
+    findUser({username: req.params.username})
+      .then(function (user) {
+        if (!user) {
+          next(new Error('No users exist'));
+        } else {  
+          user.badges.push(req.body);
+          user.save(function (err, user) {
+            if(err) {
+              next(err);
+            } else {
+              res.status(201).json(user);
+            }
+          });      
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
   }
 
   

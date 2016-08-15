@@ -8,9 +8,12 @@ angular.module('loginController', [])
 	$scope.alreadyExists = false;
 
 	$scope.signin = function () {
+		$window.localStorage.setItem('user', '');
+		$window.localStorage.setItem('com.helloHero', '');
 	  Auth.signin($scope.user)
 	    .then(function (token) {
 	      $window.localStorage.setItem('com.helloHero', token);
+	      $window.localStorage.setItem('user', $scope.user.username);
 	      $scope.validUser = true;
 	      $location.path('/dashBoard');
 	    })
@@ -41,6 +44,7 @@ angular.module('loginController', [])
 
 	if($location.$$path === '/logout'){
 	  $window.localStorage.setItem('com.helloHero', '');
+	  $window.localStorage.setItem('user', '');
 	  $location.path('/signin');
 	}
 }]);
