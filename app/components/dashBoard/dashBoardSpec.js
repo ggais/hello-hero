@@ -1,67 +1,46 @@
 'use strict';
 
 describe('DashController', function () {
-  // var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth;
+  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, User;
 
-  // // using angular mocks, we can inject the injector
-  // // to retrieve our dependencies
-  // beforeEach(module('helloHero'));
-  // beforeEach(inject(function ($injector) {
+  // using angular mocks, we can inject the injector
+  // to retrieve our dependencies
+  beforeEach(module('helloHero'));
+  beforeEach(inject(function ($injector) {
 
-  //   // mock out our dependencies
-  //   $rootScope = $injector.get('$rootScope');
-  //   $location = $injector.get('$location');
-  //   $window = $injector.get('$window');
-  //   $httpBackend = $injector.get('$httpBackend');
-  //   Auth = $injector.get('Auth');
-  //   $scope = $rootScope.$new();
+    // mock out our dependencies
+    $rootScope = $injector.get('$rootScope');
+    $location = $injector.get('$location');
+    $window = $injector.get('$window');
+    $httpBackend = $injector.get('$httpBackend');
+    Auth = $injector.get('Auth');
+    User = $injector.get('User');
 
-  //   var $controller = $injector.get('$controller');
+    $scope = $rootScope.$new();
 
-  //   // used to create our AuthController for testing
-  //   createController = function () {
-  //     return $controller('DashBoardController', {
-  //       $scope: $scope,
-  //       $window: $window,
-  //       $location: $location,
-  //       Auth: Auth
-  //     });
-  //   };
+    var $controller = $injector.get('$controller');
 
-  //   createController();
-  // }));
+    // used to create our AuthController for testing
+    createController = function () {
+      return $controller('DashBoardController', {
+        $scope: $scope,
+        $window: $window,
+        $location: $location,
+        Auth: Auth,
+        User: User
+      });
+    };
 
-  // afterEach(function () {
-  //   $httpBackend.verifyNoOutstandingExpectation();
-  //   $httpBackend.verifyNoOutstandingRequest();
-  //   $window.localStorage.removeItem('com.helloHero');
-  // });
+    createController();
+  }));
 
-  // it('should have a init function', function () {
-  //   expect($scope.init).to.be.a('function');
-  // });
 
-  // it('should store token in localStorage after signup', function () {
-  //   // create a fake JWT for auth
-  //   var token = 'sjj232hwjhr3urw90rof';
+  it('should have a init function', function () {
+    expect($scope.init).to.be.a('function');
+  });
 
-  //   // make a 'fake' reques to the server, not really going to our server
-  //   $httpBackend.expectPOST('/api/users/signup').respond({token: token});
-  //   $scope.signup();
-  //   $httpBackend.flush();
-  //   expect($window.localStorage.getItem('com.helloHero')).to.equal(token);
-  // });
+  it('should have a function to submit a recognition form', function () {
+    expect($scope.submitRecognitionForm).to.be.a('function');
+  });
 
-  // it('should have a signin method', function () {
-  //   expect($scope.signin).to.be.a('function');
-  // });
-
-  // it('should store token in localStorage after signin', function () {
-  //   // create a fake JWT for auth
-  //   var token = 'sjj232hwjhr3urw90rof';
-  //   $httpBackend.expectPOST('/api/users/signin').respond({token: token});
-  //   $scope.signin();
-  //   $httpBackend.flush();
-  //   expect($window.localStorage.getItem('com.helloHero')).to.equal(token);
-  // });
 });

@@ -18,7 +18,6 @@ angular.module('userService', [])
   };
 
   var getUser = function (username) {
-    console.log(username)
     return $http({
       method: 'GET',
       url: '/api/users/' + username
