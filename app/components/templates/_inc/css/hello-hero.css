@@ -167,14 +167,19 @@ nav {
 }
 
 /* 2Ai. Logo in Navigation */
-	.navbar-inverse .navbar-brand {
+	.navbar-inverse h1 {
+		margin-top: 0px;
+		font-size: 1em;
+	}
+	
+	.navbar-inverse h1 .navbar-brand {
 		color: #fff;
 		text-decoration: none;
 		font-size: 1.75em;
 		padding-left: 120px;
 	}
 
-	.navbar-brand:before {
+	h1 .navbar-brand:before {
 		background: rgba(0, 0, 0, 0) url("../img/logo_hello-hero_sm.png") no-repeat scroll;
 		content: "";
 		float: left;
