@@ -7,7 +7,7 @@
     <input type="text" ng-model="user.username" required>
     <label for="password">Password</label>
     <input type="password" name="password" ng-model="user.password" required>
-    <button>signin</button>
+    <button type="submit">signin</button>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
   <div style="color: red" ng-hide="validUser">That is an invalid username/password combination. You have {{tries}} attempts remaining</div>

@@ -17,7 +17,7 @@
    <span ng-show="signupForm.password.$error.required && signupForm.password.$dirty">required</span>
    <span style="color: red" ng-show="!signupForm.password.$error.required && (signupForm.password.$error.minlength || signupForm.password.$error.maxlength) && signupForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
    <br>
-    <button>signup</button>
+    <button type="submit">sign up</button>
   </form>
   <div style="color: red" ng-show="alreadyExists">That username already exists. Please choose a different username</div>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
