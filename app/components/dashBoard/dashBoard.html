@@ -6,12 +6,11 @@ Welcome {{user.username}}! <br>
 	You do not have any badges yet.
 </div>
 Select a user to give recognition to:
-<form name="recognition" ng-sumbit="submitRecognitionForm()">
-	<select name="users" ng-model="receiver">
+<form name="recognition">
+	<select name="users" ng-model="receiver" ng-submit="submitRecognitionForm()">
 	  <option ng-repeat="user in users">{{user.username}}</option>
 	</select>
-
-	What would you like to say about them?
-	<textarea ng-model="recognitionText"></textarea>
-	<button type="submit" ng-click="submitRecognitionForm()">RECOGNIZE</button>
+		What would you like to say about them?
+		<textarea ng-model="recognitionText"></textarea>
+	<button type="submit">RECOGNIZE</button>
 </form>
