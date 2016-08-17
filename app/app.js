@@ -3,7 +3,9 @@ angular.module('helloHero', [
 'loginController',
 'dashBoardController',
 'authService',
-'userService'
+'userService',
+'homeModule', 
+'layoutModule'
 ])
 
 .config(['$stateProvider', '$urlRouterProvider',
@@ -12,8 +14,9 @@ angular.module('helloHero', [
         $stateProvider
           .state('home', {
               url: '/',
-              templateUrl: 'components/login/signin.html',
-              controller: 'LoginController'
+              templateUrl: 'components/home/home.html',
+              controller: 'HomeController',
+              controllerAs: 'vm'
           })
           .state('signup', {
               url: '/signup',

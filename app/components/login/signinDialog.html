@@ -1,0 +1,83 @@
+<!-- Modal Pop Up for Log In / Sign Up-->
+
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.closeModal()"><span aria-hidden="true">&times;</span></button>
+  <h2 class="modal-title" id="myModalLabel">Log In</h2>
+</div>
+
+<div class="modal-body">
+  <form name="loginForm" novalidate>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name="exampleInputEmail1" placeholder="Email" ng-model="vm.user.username" autocomplete="false" required>
+          <div ng-show="(loginForm.$submitted || loginForm.exampleInputEmail1.$touched)" class="text-danger">
+            <div ng-show="loginForm.exampleInputEmail1.$error.required">Email is required</div>
+            <div ng-show="loginForm.exampleInputEmail1.$error.email">Enter a valid email address</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="exampleInputPassword1" placeholder="Password" ng-model="vm.user.password" autocomplete="false" required>
+          <div ng-show="(loginForm.$submitted || loginForm.exampleInputPassword1.$touched)" class="text-danger">
+            <div ng-show="loginForm.exampleInputPassword1.$error.required">Password is required</div>
+          </div>
+          <a href="#"><small>Forgot Password?</small></a>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary pull-right" ng-click="vm.signin()" ng-disabled="loginForm.$invalid">Log In</button>
+    <div class="clearfix"></div>
+  </form>
+
+  <hr>
+
+  <div class="well">
+    <h3>Don't have an account yet? Join for Free!</h3>
+    <form name="regForm" novalidate>
+      <div class="form-group">
+        <label for="exampleInputEmail2">Email address</label>
+        <input type="email" class="form-control" name="exampleInputEmail2" placeholder="Email" ng-model="vm.user.username" required>
+        <div ng-show="(regForm.$submitted || regForm.exampleInputEmail2.$touched)" class="text-danger">
+          <div ng-show="regForm.exampleInputEmail2.$error.required">Email is required</div>
+          <div ng-show="regForm.exampleInputEmail2.$error.email">Enter a valid email address</div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="exampleInputPassword2">Password</label>
+            <input type="password" class="form-control" name="exampleInputPassword2" placeholder="Password"
+              ng-model="vm.user.password" autocomplete="false" required>
+            <div ng-show="(regForm.$submitted || regForm.exampleInputPassword2.$touched)" class="text-danger">
+              <div ng-show="regForm.exampleInputPassword2.$error.required">Password is required</div>
+              <!--<div ng-show="regForm.exampleInputPassword2.$error.pattern">Invalid Password. Password must have a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter,
+                and 1 number with no spaces.</div>-->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="exampleInputPassword3">Re-type Password</label>
+            <input type="password" class="form-control" name="exampleInputPassword3" placeholder="Re-type Password" ng-model="vm.user.confirmPassword"
+              required>
+            <div ng-show="(regForm.$submitted || regForm.exampleInputPassword3.$touched)" class="text-danger">
+              <div ng-show="regForm.exampleInputPassword3.$error.required">Re-type the password</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-highlight pull-right" ng-click="vm.signup()" ng-disabled="regForm.$invalid"><span class="glyphicon glyphicon-edit"></span> Create My Account</button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+</div>
+
+
+<!-- End Modal Pop Up for Log In / Sign Up-->
