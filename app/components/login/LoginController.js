@@ -45,10 +45,10 @@
 		vm.signup = function () {
 			$window.localStorage.setItem('user', '');
 			$window.localStorage.setItem('com.helloHero', '');
-			Auth.signup(vm.user)
+			Auth.signup(vm.user_signup)
 				.then(function (token) {
 					$window.localStorage.setItem('com.helloHero', token);
-					$window.localStorage.setItem('user', vm.user.username);
+					$window.localStorage.setItem('user', vm.user_signup.username);
 					vm.closeModal();
 					$location.path('/dashBoard');
 				})

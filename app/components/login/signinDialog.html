@@ -41,7 +41,7 @@
     <form name="regForm" novalidate>
       <div class="form-group">
         <label for="exampleInputEmail2">Email address</label>
-        <input type="email" class="form-control" name="exampleInputEmail2" placeholder="Email" ng-model="vm.user.username" required>
+        <input type="email" class="form-control" name="exampleInputEmail2" placeholder="Email" ng-model="vm.user_signup.username" required>
         <div ng-show="(regForm.$submitted || regForm.exampleInputEmail2.$touched)" class="text-danger">
           <div ng-show="regForm.exampleInputEmail2.$error.required">Email is required</div>
           <div ng-show="regForm.exampleInputEmail2.$error.email">Enter a valid email address</div>
@@ -53,7 +53,7 @@
           <div class="form-group">
             <label for="exampleInputPassword2">Password</label>
             <input type="password" class="form-control" name="exampleInputPassword2" placeholder="Password"
-              ng-model="vm.user.password" autocomplete="false" required>
+              ng-model="vm.user_signup.password" autocomplete="false" required>
             <div ng-show="(regForm.$submitted || regForm.exampleInputPassword2.$touched)" class="text-danger">
               <div ng-show="regForm.exampleInputPassword2.$error.required">Password is required</div>
               <!--<div ng-show="regForm.exampleInputPassword2.$error.pattern">Invalid Password. Password must have a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter,
