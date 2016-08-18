@@ -16,24 +16,35 @@ Muted Color: Gray, #aeb0b5, rgb(174,176,181)
 /* Stylesheet Structure
 -------------------------------------------------- 
 1. BODY
-	1A. Fonts
-	1B. Header
+	1A. Font Styles
 
 2. NAVIGATION
 	2A. Top Navigation
-		2Ai. Logo in Navigation
-	2B. Mobile
+	2B. Logo in Navigation
+	2C. Navigation within Site, Pages for Users
 
 3. CONTENT
-	3A. Homepage
-	3B. Interior
+	3A. Homepage - Header
+	3B. Homepage - Content Information
+	3C. Interior - Main Content
+	3D. Interior - Users' Recognized Posts on Profile Page
+	3E. Interior - User Profile ID on Profile Page
 
 4. FOOTER 
 
 5. MISCELLANEOUS
 	5A. Forms & Buttons
+	5B. Modal Pop Up
+	5C. Well
+	5D. Tooltip 
 	
 6. MEDIA QUERIES
+	@media screen and (max-width: 1062px)
+	@media screen and (max-width: 940px)
+	@media screen and (max-width: 768px)
+	@media screen and (max-width: 640px)
+	@media screen and (max-width: 480px)
+	@media screen and (max-width:320px) 
 
 -------------------------------------------------- */
 
@@ -57,11 +68,11 @@ p, div {
 	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	line-height: 1.4em;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 strong {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 
@@ -105,7 +116,9 @@ a:visited {
 /*-------------------------------------------------- 
 	2. NAVIGATION
 -------------------------------------------------- */
-
+.navbar-header {
+	position: relative;
+} 
 
 /* 2A. Top Navigation
 -------------------------------------------------- */
@@ -138,63 +151,110 @@ nav {
 
 
 .nav a {
-	color: #fff;
+	color: rgb(255,255,255);
 	font-size: 1.2em;
 	text-decoration: none;
 }
 
 .nav > li > a {
+	border: 1px solid rgba(0, 0, 0,0);
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	line-height: 1.42857;
-	padding: 10px 15px;
+	padding: 10px 10px;
 	margin: 0px 5px;
 }
 
 .nav > li > a.btn-default, 
 .nav > li > a:hover, 
-.nav > li > a:focus {
-	background: #fff;
-	border: 0px;
+.nav > li > a:focus,
+.navbar-inverse .navbar-brand:focus, 
+.navbar-inverse .navbar-brand:hover {
+	background: rgb(250,250,250);
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	color: #205493;
 }
 
-
-.nav > li > a.btn-default:hover {
-	background: #f0f0f0;
+.page-user .navbar-inverse .navbar-brand {
+	padding: 10px 10px;
+	margin: 0px 5px;
+	height: auto;
 }
 
-#nav_Main.collapse {
+.navbar .collapse {
 	display: block;
 }
 
-/* 2Ai. Logo in Navigation */
-	.navbar-inverse h1 {
-		margin-top: 0px;
-		font-size: 1em;
-	}
+/* 2B. Logo in Navigation
+-------------------------------------------------- */
+.navbar-inverse h1 {
+	margin-top: 0px;
+}
 	
-	.navbar-inverse h1 .navbar-brand {
-		color: #fff;
-		text-decoration: none;
-		font-size: 1.75em;
+.navbar-inverse .navbar-brand {
+	color: rgb(255,255,255);
+	text-decoration: none;
+	font-size: 1em;
+}
+
+	.page-public .navbar-inverse .navbar-brand {
 		padding-left: 120px;
 	}
 
-	h1 .navbar-brand:before {
-		background: rgba(0, 0, 0, 0) url("../img/logo_hello-hero_sm.png") no-repeat scroll;
-		content: "";
-		float: left;
-		height: 120px;
-		left: -5px;
-		position: absolute;
-		text-indent: -9999px;
-		top: -15px;
-		width: 120px;
+	
+.navbar-brand:before {
+	background: rgba(0, 0, 0, 0) url("../img/logo_hello-hero_sm.png") no-repeat scroll;
+	content: "";
+	float: left;
+	height: 120px;
+	left: -5px;
+	position: absolute;
+	text-indent: -9999px;
+	top: -15px;
+	width: 120px;
+}
+
+	.page-user .navbar-inverse .navbar-brand:before {
+		display: none;
+	}
+
+/* 2C. Navigation within Site, Pages for Users
+-------------------------------------------------- */
+.page-user .navbar-header {
+    float: none;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 120px;
+}
+
+.page-user .navbar.navbar-inverse {
+	margin-top: 7px;
+}
+	
+	.page-user .navbar-brand:before {
+		position: relative;
 	}
 	
-	
+	.page-user .navbar a {
+		font-size: 1em;
+	}
+
+.nav .glyphicon {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
 /*-------------------------------------------------- 
 	3. CONTENT
 -------------------------------------------------- */
+
+.container {
+	max-width: 980px;
+}
 
 main {
 	position: relative;
@@ -207,6 +267,7 @@ header {
 	background: url("../img/pexels-photo-29594.jpg") no-repeat center center / 100% auto;
 	height: 600px;
 	position: relative;
+	-webkit-transition: 0.3s ease all;
 	transition: 0.3s ease all;
 }
 
@@ -218,17 +279,16 @@ header:before {
     width: 100%;
 }
 
-header .banner-text {
-    left: 100px;
-    position: absolute;
-    top: 30%;
-}
-
-header h2 {	
-    color: #fff;
-    font-size: 3em;
-}
-
+	header .banner-text {
+		left: 15%;
+		position: absolute;
+		top: 30%;
+	}
+	
+	header h2 {	
+		color: #fff;
+		font-size: 3em;
+	}
 
 /* 3B. Homepage - Content Information
 -------------------------------------------------- */
@@ -238,24 +298,137 @@ header h2 {
 	position: relative;
 }
 
-.content-info h3 {
-	font-size: 1.5em;
-	text-align: center;
+	.content-info h3 {
+		font-size: 1.5em;
+		text-align: center;
+	}
+	
+	.content-info .icn-info {
+		background-color: rgb(32,84,147);
+		border-radius: 50%;
+		color: #fff;
+		font-size: 2em;
+		height: 100px;
+		margin: auto;
+		text-align: center;
+		width: 100px;
+	}
+	
+		.content-info .icn-info .glyphicon {
+			top: 30%;
+		}
+
+
+/* 3C. Interior - Main Content
+-------------------------------------------------- */
+
+section.content-main {
+    margin-top: 80px;
+    padding: 40px;
+    position: relative;
 }
 
-.content-info .icn-info {
-    background-color: rgb(32,84,147);
-    border-radius: 50%;
-	color: #fff;
-	font-size: 2em;
-    height: 100px;
-	margin: auto;
-	text-align: center;
-    width: 100px;
+
+/* 3D. Interior - Users' Recognized Posts on Profile Page
+-------------------------------------------------- */
+.content-right {
+	float: right;
 }
 
-.content-info .icn-info .glyphicon {
-	top: 30%;
+.hero-head {
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 1.5em;
+}
+
+.hero-type {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.hero-msg {
+    line-height: 1.6em;
+    margin-bottom: 15px;
+}
+
+.hero-comment textarea.form-control {
+    height: 35px;	
+}
+
+
+/* 3E. Interior - User Profile ID on Profile Page
+-------------------------------------------------- */
+
+.content-profile {
+   -webkit-box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 10px 4px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+	margin-bottom: 40px;
+}
+
+.profile-head:before {
+    background: rgb(255, 255, 255);
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    -webkit-box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.15) inset;
+    content: "";
+    height: 12px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 80px;
+}
+
+.profile-head {
+    background: rgb(72,164,99);
+    -webkit-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
+	color: rgb(255,255,255);
+    padding: 10px;
+    position: relative;
+}
+
+.profile-company {
+    font-size: 1.5em;
+    margin-top: 25px;
+    position: relative;
+    text-align: center;
+}
+
+.content-profile .thumbnail {
+	border: 0px;
+	padding: 10px;
+	margin-bottom: 0px;
+}
+
+.profile-body {
+	padding: 0px 15px 15px 15px;
+}
+
+	.navbar.navbar-inverse .profile-body p {
+		margin-bottom: 5px;
+	}
+
+	.profile-body .profile-label {
+		font-weight: 700;
+	}
+	
+	.profile-body .profile-name {
+		font-size: 2em;
+		font-weight: 700;
+		line-height: 1.6em;
+	}
+	
+	.profile-body .btn {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+.content-reminders .media-object {
+	width: 50px;
 }
 
 /*-------------------------------------------------- 
@@ -271,13 +444,14 @@ footer {
 	text-align: center;
 }
 
-footer a, footer a:visited {
-	color: rgb(228,226,224);
-}
-
-footer a:hover {
-	color: rgb(228,226,224);
-}
+	footer a, 
+	footer a:visited {
+		color: rgb(228,226,224);
+	}
+	
+	footer a:hover {
+		color: rgb(228,226,224);
+	}
 
 /*-------------------------------------------------- 
 	5. MISCELLANEOUS
@@ -292,8 +466,30 @@ footer a:hover {
 	font-weight: 600;
 }
 
-.btn-group-lg > .btn, .btn-lg {
-	font-size: 1.2em;
+	.btn-group-lg > .btn, .btn-lg {
+		font-size: 1.2em;
+	}
+
+.btn-default, 
+.btn-default:active,
+.btn-default:focus,
+.btn-default:active:focus,
+.btn-default:active:hover, 
+.btn-default:hover {
+	box-shadow: none;
+	color: rgb(32,84,147);
+	border: 1px solid rgb(32,84,147);
+}
+
+.btn-default:active,
+.btn-default:active:focus,
+.btn-default:active:hover, 
+.btn-default:focus, {
+	background: rgb(245,245,245);
+}
+
+.btn-default:hover {
+	background: rgb(250,250,250);
 }
 
 .btn-primary {
@@ -368,12 +564,36 @@ footer a:hover {
 	margin-top: 0px;
 }
 
+
+/* 5D. Tooltip 
+-------------------------------------------------- */
+
+.tooltip {
+	box-shadow: 3px 3px 3px 3px rgba(0,0,0,.15);
+}
+
+	.tooltip-inner {
+		background: rgb(255,255,255);
+		color: rgb(32,84,147);
+		font-size: 1.2em; 
+	}
+	
+	
+	.tooltip.bottom .tooltip-arrow {
+		border-bottom-color: rgb(255,255,255);
+	}
+
 /*-------------------------------------------------- 
 	6. MEDIA QUERIES
 -------------------------------------------------- */
 
 
 @media screen and (max-width: 1062px) {	
+
+.container {
+	max-width: 950px;
+}
+
 /* Header
 -------------------------------------------------- */
 
@@ -381,69 +601,115 @@ header {
 	height: 400px;
 }
 
-header .banner-text {
-	top: 25%;
+	header .banner-text {
+		top: 25%;
+	}
+
 }
 
+
+@media screen and (max-width: 940px) {	
+
+/* Header
+-------------------------------------------------- */
+	
+	.nav > li > a {
+		margin: 0px;
+		padding: 10px;
+	}
 }
 
 @media screen and (max-width: 768px) {	
-/* Navigation
--------------------------------------------------- */
 
-	.navbar-brand:before {
-		background: rgba(0, 0, 0, 0) url("../img/logo_hello-hero_sm.png") no-repeat scroll 0 0 / 60px 60px;
-		height: 60px;
-		left: 5px;
-		top: -5px;
-		width: 60px;
+/* Navigation
+-------------------------------------------------- */
+	
+	.page-public .navbar.navbar-inverse {
+		margin-top: 10px;
 	}
 	
+		.page-public .navbar-inverse .navbar-brand:before {
+			background-size: 80px 80px;
+			height: 80px;
+			top: -15px;
+			left: 10px;
+			width: 80px;
+		}
 	
-	.navbar-inverse .navbar-brand {
-		color: #fff;
-		font-size: 1.75em;
-		padding-left: 60px;
+		.page-public .navbar-inverse .navbar-brand {
+			color: #fff;
+			font-size: 1em;
+			padding-left: 80px;
+		}
+
+	.page-user .navbar-inverse .nav-pills > li + li {
+		position: inherit;
 	}
+	
+		.page-user .navbar-inverse .navbar-brand:before {
+			display: block;
+		}
+
+		.page-user .navbar-inverse .navbar-brand {
+			text-indent: -9999px;
+			height: 100px;
+			width: 100px;
+			left: 0;
+			right: 0;
+			margin: auto;
+			position: absolute;
+			padding: 0px;
+		}	
 	
 /* Navigation
 -------------------------------------------------- */
-	nav {
-		height: 90px;
-		position: relative;
-	}
+.page-user nav {
+	height: 80px;
+}
 	
 	nav .container-fluid {
 		padding: 0px;
 	}
 	
-	.navbar-header {
-		margin: 5px 0px 0px;
-		padding: 0px 10px 0px 10px;
-		position: relative; 
-		width: 100%;
-		z-index: 2;
-	}
-	
+.navbar-header {
+	margin: 5px 0px 0px;
+	padding: 0px 10px 0px 10px;
+	position: relative; 
+	z-index: 2;
+}
 
-	/* Responsive - Top Navigation - Collapsible */
-	.navbar #nav_Main {
-		background: rgb(255,255,255);
-		height: 0;
-		overflow: hidden;
-		width: 100%; 
-	}
+.page-public .navbar-header {
+	width: 100%;
+}
 	
-	.navbar #nav_Main.nav-collapse {
-		margin: 20px 0px;
-		position: relative;
-		z-index: 1;
+	.page-user .navbar a {
+		font-size: 1.5em;
+		margin: 10px;
+		padding: 10px 15px;
 	}
+
+		.page-user .navbar a .glyphicon {
+			text-indent: none;
+		}
 	
-	.navbar #nav_Main.in {
-		height: auto;
-		overflow: visible;
-	}
+/* Responsive - Top Navigation - Collapsible */
+.navbar #nav_Main {
+	background: rgb(255,255,255);
+	height: 0;
+	overflow: hidden;
+	width: 100%; 
+}
+	
+.navbar #nav_Main.nav-collapse {
+	margin: 15px 0px;
+	position: relative;
+	z-index: 1;
+}
+
+.navbar #nav_Main.in {
+	height: auto;
+	overflow: visible;
+}
 	
 	#nav_Main .nav > li {
 		border-bottom: 1px solid rgba(0,0,0,.1);
@@ -451,22 +717,22 @@ header .banner-text {
 		width: 100%;
 	}
 	
-	#nav_Main .nav > li > a {
-		color: rgb(32,84,147);
-		height: 52px;
-		margin: 0px;
-		padding: 16px;
-	}
+		#nav_Main .nav > li > a {
+			color: rgb(32,84,147);
+			height: 52px;
+			margin: 0px;
+			padding: 12px 15px;
+		}
 	
 		
-	#nav_Main .nav > li a:hover {
-		-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
-		-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
-		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
-		color: rgb(0,54,79);
-	}
+		#nav_Main .nav > li a:hover {
+			-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
+			-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
+			filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+			-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176) inset;
+			color: rgb(0,54,79);
+		}
 	
 		.nav > li > a.btn-default {
 			border: none;
@@ -483,7 +749,8 @@ header .banner-text {
 		background: rgb(0,113,188);
 	}
 	
-	.navbar-toggle, .navbar-inverse .navbar-toggle {
+	.navbar-toggle, 
+	.navbar-inverse .navbar-toggle {
 		border-color: rgba(17,46,81,.35);
 		display: block;
 	}
@@ -497,6 +764,15 @@ header .banner-text {
 		background: rgb(32,84,147);
 	}
 	
+	.nav-text {
+		display:none;
+	}
+	
+	.navbar-inverse .navbar-brand:focus, 
+	.navbar-inverse .navbar-brand:hover {
+		background: transparent;
+		color: #205493;
+	}
 
 /* Header
 -------------------------------------------------- */
@@ -506,39 +782,155 @@ header {
 	height: 400px;
 }
 
-header .banner-text {
-	top: 30%;
-	left: 20px;
-}
-
-header .banner-text h2 {
-	font-size: 1.75em;
-}
-
+	header .banner-text {
+		top: 30%;
+		left: 20px;
+	}
+	
+	header .banner-text h2 {
+		font-size: 1.75em;
+	}
 
 /* Content
 -------------------------------------------------- */
 main {
-	margin-top: 0px;
+	margin-top: 80px;
 }
 
 .content-info {
 	height: auto;
 }
 
-.content-info h3 {
-	font-size: 1.2em;
+	.content-info h3 {
+		font-size: 1.2em;
+	}
+	
+	.content-info .icn-info {
+		font-size: 1.2em;
+		height: 60px;
+		width: 60px;
+	}
+
+
+section.content-main {
+	margin-top: 20px;
+	padding: 0px;
 }
 
-.content-info .icn-info {
-	font-size: 1.2em;
-	height: 60px;
-	width: 60px;
+.content-right {
+	float: none;
 }
 
-.row [class*="col-"] {
+.page-public .row [class*="col-"] {
 	margin-bottom: 30px;
 }
 
 }
 
+@media screen and (max-width: 640px) {
+	
+/* Header
+-------------------------------------------------- */
+
+.page-public .navbar-inverse .navbar-brand:before {
+    background-size: 60px 60px;
+    height: 60px;
+    top: -5px;
+    width: 60px;
+}
+	
+.page-public .navbar-inverse .navbar-brand {
+	padding-left: 60px;
+	font-size: .75em;
+}
+
+.page-user .navbar-inverse .navbar-brand {
+	height: 60px;
+	width: 60px;
+}
+
+.page-user .navbar-brand:before {
+	background-position: -10px 0px;
+    background-size: 80px 80px;
+    height: 80px;
+	left: 0;
+	right: 0;
+	margin: auto;
+    top: -10px;
+    width: 80px;
+}
+	
+	.page-user .navbar a {
+		font-size: 1em;
+		margin: 2px;
+		padding: 5px 10px;
+	}
+	
+.page-user nav {
+	height: 50px;
+}
+	
+main {
+	margin-top: 50px;
+}
+
+/* Interior - Posts
+-------------------------------------------------- */
+.hero-comment textarea.form-control {
+	margin-bottom: 10px;
+}
+}
+
+@media screen and (max-width: 480px) {	
+
+/* Homepage - Content Information
+-------------------------------------------------- */
+.content-info {
+	margin: 40px 20px;
+}
+
+/* Interior - Posts
+-------------------------------------------------- */
+
+.hero-post .thumbnail {
+    float: left;
+    margin-bottom: 0;
+	margin-right: 10px;
+    width: 25%;
+}
+
+
+/* Misc
+-------------------------------------------------- */
+.row [class*="col-"] {
+	float: none;
+	width: 100%;
+}
+
+}
+
+@media screen and (max-width:320px) {
+/* Header
+-------------------------------------------------- */
+
+.page-user .navbar-inverse .navbar-brand {
+	height: 50px;
+	width: 50px;
+	padding: 0px;
+}
+
+.page-user .navbar-brand:before {
+    background-position: -5px -5px;
+    background-size: 60px 60px;
+    height: 60px;
+    padding: 0;
+    top: 10px;
+    width: 60px;
+}
+	
+	.page-user .navbar a {
+		font-size: 1em;
+		margin: 4px 2px;
+		padding: 5px 8px;
+	}
+}
