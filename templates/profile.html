@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8"> 
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>HelloHero</title>
+
+<meta content="HelloHero" property="og:title">
+<meta content="" name="description">
+<meta content="" property="og:description">
+
+<!-- Fonts --> 
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,700,600italic,700italic,900,900italic" rel="stylesheet" type="text/css">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="_inc/css/hello-hero.css" rel="stylesheet" >
+
+<!-- Favorite Icon --> 
+<link href="_inc/img/favicon.ico" rel="shortcut icon">
+
+<!-- JavaScripts -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script> 
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+<!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+
+<div class="wrapper page-user">
+
+    <!-- Navigation --> 
+    <nav>
+        <div class="container-fluid">
+                
+            <div class="navbar navbar-inverse">
+                <span class="sr-only">Navigation</span>
+                
+                
+                <!-- Application Navigation -->
+                <div id="nav_Site" class="pull-left">
+                    <ul class="nav nav-pills nav-lvl1">
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit the Directory"><span class="glyphicon glyphicon-th-list"></span> <span class="nav-text">Directory</span></a>
+                        </li>
+                        
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit Wall of Heroes"><span class="glyphicon glyphicon-th-large"></span> <span class="nav-text">Wall of Heroes</span></a>
+                        </li>
+                        
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="See My Recognition"><span class="glyphicon glyphicon-eye-open"></span> <span class="nav-text">My Recognition</span></a>
+                        </li>
+                        
+                        <li>
+                            <a href="recognize.html" class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Recognize a Hero"><span class="glyphicon glyphicon-star"></span> <span class="nav-text">Recognize a Hero</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- // End Application Navigation -->
+                
+                               
+                <!-- User Navigation -->
+                <div id="nav_User" class="pull-right">
+                    <ul class="nav nav-pills nav-lvl1">
+                        <li>
+                            <a href="profile.html" data-toggle="tooltip" data-placement="bottom" title="Visit My Profile"><span class="glyphicon glyphicon-user"></span>  <span class="nav-text">Profile</span></a>
+                        </li>
+                        
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit My Admin"><span class="glyphicon glyphicon-cog"></span>  <span class="nav-text">Admin</span></a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign Off"><span class="glyphicon glyphicon-off"></span> <span class="nav-text">Log Out</span></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <!-- // End User Navigation -->
+                
+            </div>
+            
+        </div>
+    </nav>
+    <!-- // End Navigation -->
+
+<main>
+
+	<!-- Section for Content -->
+	<section class="content-main">
+    
+    	<div class="container">
+            <div class="row">
+                
+                <div class="col-sm-8 content-right">
+                	<h2>Hello<strong>Hero</strong>! You've been recognized!</h2>
+                    
+                    <div class="hero-post">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <a href="#" class="thumbnail">
+                                      <img src="_inc/img/img_persona_justin.png" alt="Profile image for Justin">
+                                    </a>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="hero-head">You are Justin's Hero</div>
+                                    <div class="hero-type">Brilliant!</div>
+                                    <div class="hero-msg">"Excellent work Luis, thank you so much!"</div>
+                                    <div class="hero-comment">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Leave a comment"></textarea>
+                                                <button type="submit" class="btn btn-primary">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="hero-post">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <a href="#" class="thumbnail">
+                                      <img src="_inc/img/img_persona_jessie.png" alt="Profile image for Justin">
+                                    </a>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="hero-head">You are Jessie's Hero</div>
+                                    <div class="hero-type">Innovative!</div>
+                                    <div class="hero-msg">"Great ideas Dan!"</div>
+                                    <div class="hero-comment">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Leave a comment"></textarea>
+                                                <button type="submit" class="btn btn-primary">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                    
+                        <div class="well">
+                        	<h3><strong>Your Hero Stats this week:</strong> August 7 - 13, 2016</h3>
+                            <div class="row">
+                            <img class="col-xs-12" src="_inc/img/img_stat.png" title="Hero stats for the week." alt="Hero stats for the week." >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            	<div class="col-sm-4 col-xs-6">
+                    <div class="content-profile">   
+                    	<div class="profile-head">
+                        	<div class="profile-company">
+                            	Milan Inc.
+                            </div>
+                        </div>                 
+                        <div class="thumbnail">
+                          <img src="_inc/img/img_persona_luis.png" alt="Profile image for Justin">
+                        </div>
+                        <div class="profile-body">
+                        	<div class="profile-name">Luis Medina</div>
+                            <p>
+                                <span class="profile-label">Hero Level:</span>
+                                <span class="profile-desc">Do-Gooder</span>
+                            </p>
+                            <p>
+                                <span class="profile-label">Position:</span>
+                                <span class="profile-desc">Senior Developer</span>
+                            </p>
+                            <p>
+                                <span class="profile-label">Date of Hire:</span>
+                                <span class="profile-desc">08/15/2011</span>
+                            </p>
+                            <p>
+                                <span class="profile-label">Birthday:</span>
+                                <span class="profile-desc">01/02/1983</span>
+                            </p>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit Profile</button>
+                        </div>
+                 	</div>
+                    
+                    <div class="content-reminders">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                          
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-bell text-primary"></span> Reminders</h3>
+                            
+                          </div>
+                          <div class="panel-body">
+                          
+                          <ul class="media-list">
+                              <li class="media">
+                                <div class="media-left">
+                                  <a href="#">
+                                    <img class="media-object thumbnail" src="_inc/img/img_persona_jessie.png" alt="Profile image of Jessie">
+                                  </a>
+                                </div>
+                                <div class="media-body">
+                                  <p>Jessie Johnson is celebrating a birthday today!</p>
+                                </div>
+                              </li>
+                              <li class="media">
+                                <div class="media-left">
+                                  <a href="#">
+                                    <img class="media-object thumbnail" src="_inc/img/img_persona_justin.png" alt="Profile image for Justin">
+                                  </a>
+                                </div>
+                                <div class="media-body">
+                                  <p>Justin Bass is celebrating a work anniversary today!</p>
+                                </div>
+                              </li>
+                            </ul>
+                                                      
+                          </div>
+                        </div>
+					</div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+	<!-- // End Section for Main Content -->
+    
+    
+</main>
+
+<footer>
+
+        <p>Powered by the <a href="#" title="Visit the Inserso Team website">Inserso Team</a>.</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
