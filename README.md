@@ -35,6 +35,8 @@ see [CONTRIBUTING.md](https://github.com/Inserso/hello-hero/blob/master/CONTRIBU
     |
     |---- .travis.yml
     |
+    |----- templates
+    |
     |---- /app
     |     |
     |     |---- index.html
