@@ -3,11 +3,8 @@
 
 	angular.module('loginController', [
 		'ui.bootstrap'
-	]);
-
-	angular
-		.module('loginController')
-		.controller('LoginController', LoginController);
+	])
+	.controller('LoginController', LoginController);
 
 	LoginController.$inject = ['$scope', '$window', '$location', 'Auth', '$uibModalInstance'];
 

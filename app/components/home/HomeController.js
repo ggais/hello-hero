@@ -15,7 +15,7 @@
     /** @ngInject */
     function HomeController($uibModal) {
         var vm = this;
-        vm.templateUrl = '/components/login/signinDialog.html';
+        vm.templateUrl = 'components/login/signinDialog.html';
         vm.showLoginForm = showLoginForm;
 
         init();
