@@ -1,5 +1,5 @@
 
-# HelloHero
+# Hello Hero
 
 ## About
 a peer to peer recognition platform.
