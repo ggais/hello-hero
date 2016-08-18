@@ -1,12 +1,19 @@
 'use strict';
 
 describe('LoginController', function () {
-  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth;
+  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, $uibModalInstance, vm;
 
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('helloHero'));
   beforeEach(inject(function ($injector) {
+
+    var fakeModal ={
+       dismiss: function(){
+       }
+    };
+
+    //spyOn($uibModalInstance, 'dismiss').and.returnValue(fakeModal);
 
     // mock out our dependencies
     $rootScope = $injector.get('$rootScope');
@@ -14,7 +21,9 @@ describe('LoginController', function () {
     $window = $injector.get('$window');
     $httpBackend = $injector.get('$httpBackend');
     Auth = $injector.get('Auth');
+    $uibModalInstance = fakeModal; //$injector.get('$uibModalInstance');
     $scope = $rootScope.$new();
+
 
     var $controller = $injector.get('$controller');
 
@@ -24,11 +33,12 @@ describe('LoginController', function () {
         $scope: $scope,
         $window: $window,
         $location: $location,
-        Auth: Auth
+        Auth: Auth,
+        $uibModalInstance: $uibModalInstance
       });
     };
 
-    createController();
+    vm = createController();
   }));
 
   afterEach(function () {
@@ -38,7 +48,7 @@ describe('LoginController', function () {
   });
 
   it('should have a signup method', function () {
-    expect($scope.signup).to.be.a('function');
+    expect(vm.signup).to.be.a('function');
   });
 
   it('should store token in localStorage after signup', function () {
@@ -46,21 +56,21 @@ describe('LoginController', function () {
     var token = 'sjj232hwjhr3urw90rof';
 
     // make a 'fake' reques to the server, not really going to our server
-    $httpBackend.expectPOST('/api/users/signup').respond({token: token});
-    $scope.signup();
+    $httpBackend.expectPOST('/api/users/signup').respond({ token: token });
+    vm.signup();
     $httpBackend.flush();
     expect($window.localStorage.getItem('com.helloHero')).to.equal(token);
   });
 
   it('should have a signin method', function () {
-    expect($scope.signin).to.be.a('function');
+    expect(vm.signin).to.be.a('function');
   });
 
   it('should store token in localStorage after signin', function () {
     // create a fake JWT for auth
     var token = 'sjj232hwjhr3urw90rof';
-    $httpBackend.expectPOST('/api/users/signin').respond({token: token});
-    $scope.signin();
+    $httpBackend.expectPOST('/api/users/signin').respond({ token: token });
+    vm.signin();
     $httpBackend.flush();
     expect($window.localStorage.getItem('com.helloHero')).to.equal(token);
   });

@@ -2,26 +2,58 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="helloHero" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="helloHero" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="helloHero" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="helloHero" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="helloHero" class="no-js">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hello Hero</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>HelloHero</title>
+
+    <meta content="HelloHero" property="og:title">
+    <meta content="" name="description">
+    <meta content="" property="og:description">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,700,600italic,700italic,900,900italic"
+        rel="stylesheet" type="text/css">
+
+
     <!-- bower:css -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
+
+    <!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
+
 <body>
-<!--[if lt IE 7]>
+    <div id="page-home" class="wrapper">
+        <!-- Navigation -->
+        <div data-ng-include="'components/layout/layout.html'"></div>
+        <main>
+            <div ui-view>
+                <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div ui-view></div>
-<!-- bower:js -->
-<!-- endinject -->
-<!-- inject:js -->
-<!-- endinject -->
+                <div ui-view></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by the <a href="#" title="Visit the Inserso Team website">Inserso Team</a>.</p>
+        </footer>
+    </div>
+
+    <!-- bower:js -->
+    <!-- endinject -->
+    <!-- inject:js -->
+    <!-- endinject -->
 </body>
+
 </html>
