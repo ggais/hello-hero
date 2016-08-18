@@ -57,6 +57,7 @@ describe('LoginController', function () {
 
     // make a 'fake' reques to the server, not really going to our server
     $httpBackend.expectPOST('/api/users/signup').respond({ token: token });
+    vm.user_signup = {};
     vm.signup();
     $httpBackend.flush();
     expect($window.localStorage.getItem('com.helloHero')).to.equal(token);
