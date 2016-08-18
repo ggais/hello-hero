@@ -5,7 +5,8 @@ angular.module('helloHero', [
 'authService',
 'userService',
 'homeModule', 
-'layoutModule'
+'layoutModule',
+'reportModule'
 ])
 
 .config(['$stateProvider', '$urlRouterProvider',
@@ -22,5 +23,11 @@ angular.module('helloHero', [
               url: '/dashBoard',
               templateUrl: 'components/dashBoard/dashBoard.html',
               controller: 'DashBoardController'
+          })
+          .state('report', {
+              url: '/report',
+              templateUrl: 'components/reports/report.html',
+              controller: 'ReportController',
+              controllerAs: 'vm'
           });
     }]);
