@@ -3,6 +3,8 @@
 
 [![Build Status](https://travis-ci.org/Inserso/hello-hero.svg?branch=master)](https://travis-ci.org/Inserso/hello-hero) [![Code Climate](https://codeclimate.com/github/Inserso/hello-hero/badges/gpa.svg)](https://codeclimate.com/github/Inserso/hello-hero)
 
+[![Build Status](https://travis-ci.org/Inserso/hello-hero.svg?branch=master)](https://travis-ci.org/Inserso/hello-hero) [![Code Climate](https://codeclimate.com/github/Inserso/hello-hero/badges/gpa.svg)](https://codeclimate.com/github/Inserso/hello-hero)
+
 ## About
 a peer to peer recognition platform.
 
