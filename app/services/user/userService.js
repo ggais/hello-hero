@@ -23,15 +23,16 @@ angular.module('userService', [])
       url: '/api/users/' + username
     })
     .then(function (resp) {
+      console.log(resp, 'asdfa')
       return resp;
     });
   };
 
-  var giveRecognition = function (badge, receiver) {
+  var updateUser = function (receiver) {
     return $http({
       method: 'PUT',
-      url: '/api/users/' + receiver,
-      data: badge
+      url: '/api/users/' + receiver.username,
+      data: receiver
     })
     .then(function (resp) {
       return resp;
@@ -41,6 +42,6 @@ angular.module('userService', [])
   return {
     getAllUsers: getAllUsers,
     getUser: getUser,
-    giveRecognition: giveRecognition
+    updateUser: updateUser
   };
 }]);

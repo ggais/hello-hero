@@ -6,8 +6,8 @@ Welcome {{user.username}}! <br>
 	You do not have any badges yet.
 </div>
 Select a user to give recognition to:
-<form name="recognition">
-	<select name="users" ng-model="receiver" ng-submit="submitRecognitionForm()">
+<form name="recognition" ng-submit="submitRecognitionForm()">
+	<select name="users" ng-model="receiver">
 	  <option ng-repeat="user in users">{{user.username}}</option>
 	</select>
 		What would you like to say about them?

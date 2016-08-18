@@ -118,7 +118,9 @@ module.exports = {
         if (!user) {
           next(new Error('No users exist'));
         } else {  
-          user.badges.push(req.body);
+          for (var key in req.body) {
+            user[key] = req.body[key];
+          }
           user.save(function (err, user) {
             if(err) {
               next(err);
