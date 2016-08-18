@@ -18,11 +18,6 @@ angular.module('helloHero', [
               controller: 'HomeController',
               controllerAs: 'vm'
           })
-          .state('signup', {
-              url: '/signup',
-              templateUrl: 'components/login/signup.html',
-              controller: 'LoginController'
-          })
           .state('dashBoard', {
               url: '/dashBoard',
               templateUrl: 'components/dashBoard/dashBoard.html',

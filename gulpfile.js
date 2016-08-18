@@ -14,7 +14,7 @@ var streamqueue = require('streamqueue');
 var paths = {
     scripts: ['app/**/*.js', '!app/components/**/*Spec.js'],
     styles: ['./app/**/*.css', './app/**/*.scss'],
-    images: './images/**/*',
+    assets: ['./app/assets/**/*'],
     index: './app/index.html',
     partials: ['app/**/*.html', '!app/index.html'],
     distDev: './dist.dev',
@@ -116,6 +116,10 @@ pipes.builtPartialsDev = function() {
         .pipe(gulp.dest(paths.distDev));
 };
 
+pipes.builtPartialsProd = function() {
+    return pipes.validatedPartials()
+        .pipe(gulp.dest(paths.distProd));
+};
 
 
 pipes.builtStylesDev = function() {
@@ -134,14 +138,14 @@ pipes.builtStylesProd = function() {
         .pipe(gulp.dest(paths.distProd));
 };
 
-pipes.processedImagesDev = function() {
-    return gulp.src(paths.images)
-        .pipe(gulp.dest(paths.distDev + '/images/'));
+pipes.processedAssetsDev = function() {
+    return gulp.src(paths.assets)
+        .pipe(gulp.dest(paths.distDev + '/assets/'));
 };
 
-pipes.processedImagesProd = function() {
-    return gulp.src(paths.images)
-        .pipe(gulp.dest(paths.distProd + '/images/'));
+pipes.processedAssetsProd = function() {
+    return gulp.src(paths.assets)
+        .pipe(gulp.dest(paths.distProd + '/assets/'));
 };
 
 pipes.validatedIndex = function() {
@@ -179,16 +183,16 @@ pipes.builtIndexProd = function() {
         .pipe(plugins.inject(vendorScripts, {relative: true, name: 'bower'}))
         .pipe(plugins.inject(appScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
-        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
+        // .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest(paths.distProd));
 };
 
 pipes.builtAppDev = function() {
-    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev());
+    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedAssetsDev());
 };
 
 pipes.builtAppProd = function() {
-    return es.merge(pipes.builtIndexProd(), pipes.processedImagesProd());
+    return es.merge(pipes.builtIndexProd(), pipes.builtPartialsProd(), pipes.processedAssetsProd());
 };
 
 pipes.test = function (done) {
