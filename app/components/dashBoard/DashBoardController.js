@@ -1,6 +1,7 @@
 angular.module('dashBoardController', [])
 .controller('DashBoardController', ['$scope', '$window', '$location', 'Auth', 'User', function ($scope, $window, $location, Auth, User) {
 	$scope.user = {};
+	$scope.user_signup = {};
 	$scope.validUser = true;
 	$scope.tries = 6;
 	$scope.lockedOut = true;
@@ -40,14 +41,20 @@ angular.module('dashBoardController', [])
 	};
 
 	$scope.submitRecognitionForm = function () {
-		var badge = {
-			text: $scope.recognitionText,
-			date: new Date (),
-			initiator: $window.localStorage.getItem('user')
-		};
-		User.giveRecognition(badge, $scope.receiver).then(function (response) {
-			console.log(response);
-		});
+		User.getUser($scope.receiver).then(function (response) {
+			var badge = {
+				text: $scope.recognitionText,
+				date: new Date (),
+				initiator: $window.localStorage.getItem('user')
+			};
+			var receiver = response.data;
+			receiver.badges.push(badge);
+			User.updateUser(receiver).then(function (response) {
+				console.log(response, 'success giving recognition');
+			});
+		}).catch(function (error) {
+			console.log('error finding receiver');
+		});		
 	};
 
 	if(!$scope.isAuth()){
