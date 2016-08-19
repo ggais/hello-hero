@@ -23,7 +23,7 @@ angular.module('userService', [])
       url: '/api/users/' + username
     })
     .then(function (resp) {
-      console.log(resp, 'asdfa')
+      console.log(resp, 'asdfa');
       return resp;
     });
   };
