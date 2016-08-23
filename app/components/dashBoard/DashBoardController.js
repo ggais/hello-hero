@@ -41,20 +41,18 @@ angular.module('dashBoardController', [])
 	};
 
 	$scope.submitRecognitionForm = function () {
-		User.getUser($scope.receiver).then(function (response) {
-			var badge = {
-				text: $scope.recognitionText,
-				date: new Date (),
-				initiator: $window.localStorage.getItem('user')
-			};
-			var receiver = response.data;
-			receiver.badges.push(badge);
-			User.updateUser(receiver).then(function (response) {
-				console.log(response, 'success giving recognition');
-			});
-		}).catch(function (error) {
-			console.log('error finding receiver');
-		});		
+		console.log('hi')
+		var badge = {
+			text: $scope.recognitionText,
+			date: new Date (),
+			initiator: $window.localStorage.getItem('user')
+		};
+		User.giveRecognition(badge, $scope.receiver).then(function (response) {
+			console.log(response)
+			if(response.status === 201) {
+				alert('success!');
+			}
+		});
 	};
 
 	if(!$scope.isAuth()){
