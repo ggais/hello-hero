@@ -80,6 +80,7 @@ strong {
 -------------------------------------------------- */
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+	margin-top: 0px;
 }
 
 h1, .h1 {
@@ -95,7 +96,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-	font-size: 1.5em;
+	font-size: 1.4em;
 	font-weight: 400;
 	line-height: 1.4em;
 }
@@ -264,29 +265,29 @@ main {
 /* 3A. Homepage - Header
 -------------------------------------------------- */
 header {
-	background: url("../img/pexels-photo-29594.jpg") no-repeat center center / 100% auto;
+	background: url("../img/img_superherokid.jpg") no-repeat center left / 100% auto;
 	height: 600px;
 	position: relative;
 	-webkit-transition: 0.3s ease all;
 	transition: 0.3s ease all;
 }
 
-header:before {
+/*header:before {
     background: rgba(0, 0, 0,0.4) none repeat scroll 0 0;
     content: "";
     height: 100%;
     position: absolute;
     width: 100%;
-}
+}*/
 
 	header .banner-text {
-		left: 15%;
+		right: 5%;
 		position: absolute;
-		top: 30%;
+		top: 35%;
 	}
 	
 	header h2 {	
-		color: #fff;
+		color: rgb(32,84,147);
 		font-size: 3em;
 	}
 
@@ -302,28 +303,13 @@ header:before {
 		font-size: 1.5em;
 		text-align: center;
 	}
-	
-	.content-info .icn-info {
-		background-color: rgb(32,84,147);
-		border-radius: 50%;
-		color: #fff;
-		font-size: 2em;
-		height: 100px;
-		margin: auto;
-		text-align: center;
-		width: 100px;
-	}
-	
-		.content-info .icn-info .glyphicon {
-			top: 30%;
-		}
-
 
 /* 3C. Interior - Main Content
 -------------------------------------------------- */
 
 section.content-main {
     margin-top: 80px;
+	min-height: 500px;
     padding: 40px;
     position: relative;
 }
@@ -431,6 +417,93 @@ section.content-main {
 	width: 50px;
 }
 
+
+
+/*  3F. Circle Objects
+-------------------------------------------------- */
+.icn-info, 
+.icn-circle {
+	background-color: rgb(32,84,147);
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	height: 100px;
+	text-align: center;
+	width: 100px;
+}
+
+.icn-info {
+	font-size: 2em; 
+	margin: auto;
+}
+
+	.icn-info .glyphicon,
+	.icn-circle .glyphicon {
+		top: 30%;
+	}
+	
+	.icn-number {
+		font-size: 2em;
+		margin-top: 10px;
+		margin-right: 15px;
+		padding-top: 3px;
+	}
+	
+	.icn-sm {
+		height: 50px;
+		width: 50px;
+	}
+
+
+.hero-badge {
+	float: left;
+	margin: 5px;
+	position: relative;
+}
+	
+	.icn-badge {
+		border: 8px solid rgba(0,0,0,.1) !important;
+		margin-bottom: 30px;
+		padding: 0px;
+	}
+		
+		
+		.icn-badge img {
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		
+		.icn-badge .icn-badge-text {
+			color: rgb(0,0,0);
+			font-weight: 600; 
+			margin-top: 10px;
+			text-transform: uppercase;
+		}
+
+	.hero-badge button:hover {
+		border-color: rgb(0,113,188) !important;
+		background: rgb(240,240,240);
+	}
+	
+		.hero-badge button:hover .icn-badge-text {
+			color: rgb(0,113,188);
+		}
+		
+	.hero-badge button:active,
+	.hero-badge button.select {
+		border-color: rgb(32,84,147) !important;
+		background: rgb(230,230,230);
+	}
+	
+		.hero-badge button:active .icn-badge-text,
+		.hero-badge button.select .icn-badge-text {
+			color: rgb(32,84,147);
+		}
+	
+
 /*-------------------------------------------------- 
 	4. FOOTER
 -------------------------------------------------- */
@@ -461,8 +534,9 @@ footer {
 /* 5A. Forms & Buttons
 -------------------------------------------------- */
 
+/* 5Ai. Buttons */
+
 .btn {
-	font-size: 1em;
 	font-weight: 600;
 }
 
@@ -481,6 +555,12 @@ footer {
 	border: 1px solid rgb(32,84,147);
 }
 
+.icn-default {
+	background: rgb(255,255,255);
+	border-color: rgb(32,84,147);
+	color: rgb(32,84,147);
+}
+
 .btn-default:active,
 .btn-default:active:focus,
 .btn-default:active:hover, 
@@ -492,15 +572,21 @@ footer {
 	background: rgb(250,250,250);
 }
 
-.btn-primary {
+.btn-primary,
+.label-primary, 
+.icn-primary {
 	background: rgb(0,113,188);
 }
 
-.btn-primary:active {
+.btn-primary:active,
+a .label-primary:active,
+a .icn-primary:active {
 	background: rgb(17,46,81);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+a .label-primary:hover,
+a .icn-primary:hover {
 	background: rgb(32,84,147);
 }
 
@@ -516,6 +602,12 @@ footer {
 	background: rgb(253,184,30);
 }
 
+
+/* 5Aii */
+
+.form-recognize .well h3 {
+    margin-top: 18px;
+}
 
 /* 5B. Modal Pop Up
 -------------------------------------------------- */
@@ -583,6 +675,22 @@ footer {
 		border-bottom-color: rgb(255,255,255);
 	}
 
+
+/* 5E. Labels
+-------------------------------------------------- */
+a > .label {
+	text-decoration: none;
+}
+
+.label-primary {
+	background: rgb(32,84,147);
+}
+
+a > .label:hover {
+	background: 
+}
+
+
 /*-------------------------------------------------- 
 	6. MEDIA QUERIES
 -------------------------------------------------- */
@@ -602,7 +710,11 @@ header {
 }
 
 	header .banner-text {
-		top: 25%;
+		right: 5%;
+	}
+	
+	header h2 {
+		font-size: 2em;
 	}
 
 }
@@ -617,9 +729,18 @@ header {
 		margin: 0px;
 		padding: 10px;
 	}
+	
+	
+	header h2 {	
+		font-size: 2em;
+	}
 }
 
 @media screen and (max-width: 768px) {	
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+	margin-top: 20px;
+}
 
 /* Navigation
 -------------------------------------------------- */
@@ -778,13 +899,14 @@ header {
 -------------------------------------------------- */
 
 header {
-	background-size: auto 500px;
 	height: 400px;
+	background-size: 100% auto;
+	background-position: right center;
 }
 
 	header .banner-text {
 		top: 30%;
-		left: 20px;
+		right: 20px;
 	}
 	
 	header .banner-text h2 {
@@ -827,8 +949,16 @@ section.content-main {
 
 }
 
+
 @media screen and (max-width: 640px) {
-	
+section.content-main {
+	padding: 10px 0px;
+}
+
+header {
+	background-size: auto 100%;
+}
+
 /* Header
 -------------------------------------------------- */
 
@@ -889,6 +1019,28 @@ main {
 	margin: 40px 20px;
 }
 
+header {
+	background-position: center center;
+	height: 350px;
+}
+
+header .banner-text {
+	left: 5%;
+	right: auto;
+}
+
+header:before {
+    background: rgba(0, 0, 0,0.4) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+header h2 {
+	color: rgb(255,255,255);
+}
+
 /* Interior - Posts
 -------------------------------------------------- */
 
@@ -933,4 +1085,10 @@ main {
 		margin: 4px 2px;
 		padding: 5px 8px;
 	}
+
+
+	header h2 {	
+		font-size: 2em;
+	}
+
 }
