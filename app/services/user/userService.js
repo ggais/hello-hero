@@ -21,11 +21,8 @@ angular.module('userService', [])
     return $http({
       method: 'GET',
       url: '/api/users/' + username
-    })
-    .then(function (resp) {
-      console.log(resp, 'asdfa');
-      return resp;
     });
+    
   };
 
   var updateUser = function (receiver) {
