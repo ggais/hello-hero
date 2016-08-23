@@ -8,7 +8,7 @@ angular.module('dashBoardController', [])
 	$scope.isLoggedIn = Auth.isAuth();
 	$scope.alreadyExists = false;
 	$scope.users = [];
-	$scope.badges = ['Brilliant!', 'Exceptional!', 'Innovative', 'Committed', 'Skillful', 'Resourceful', 'Timesaver', 'Lifesaver']
+	$scope.badges = ['Brilliant!', 'Exceptional!', 'Innovative', 'Committed', 'Skillful', 'Resourceful', 'Timesaver', 'Lifesaver'];
 
 	
 
@@ -59,7 +59,7 @@ angular.module('dashBoardController', [])
 		}).catch(function (error) {
 			console.log('error finding receiver');
 		});		
-	}
+	};
 
 	if(!$scope.isAuth()){
 	  $window.localStorage.setItem('com.helloHero', '');
