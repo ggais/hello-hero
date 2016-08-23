@@ -1,5 +1,6 @@
 var userController = require('../users/userController.js');
 var helpers = require('./helpers.js'); // our custom middleware
+var mongoose = require('mongoose');
 
 module.exports = function (app, express) {
   app.post('/api/users/signin', userController.signin);
