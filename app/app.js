@@ -31,6 +31,12 @@ angular.module('helloHero', [
                     controller: 'ReportController',
                     controllerAs: 'vm'
                 })
+                 .state('report2', {
+                    url: '/report2',
+                    templateUrl: 'components/reports/report2.html',
+                    controller: 'ReportController',
+                    controllerAs: 'vm'
+                })
                 .state('profile', {
                     url: '/profile',
                     templateUrl: 'components/profile/profile.html',
