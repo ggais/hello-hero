@@ -1,16 +1,18 @@
 Welcome {{user.username}}! <br>
 <div ng-repeat="badges in user.badges">
-	{{badges.initiator}} said {{badges.text}} on {{badges.date}}
+	{{badges.initiator}} said {{badges.name}} on {{badges.date}}
 </div>
 <div ng-show="user.badges.length === 0">
 	You do not have any badges yet.
 </div>
 Select a user to give recognition to:
-<form name="recognition">
-	<select name="users" ng-model="receiver" ng-submit="submitRecognitionForm()">
+<form name="recognition" ng-submit="submitRecognitionForm()">
+	<select name="users" ng-model="receiver" >
 	  <option ng-repeat="user in users">{{user.username}}</option>
 	</select>
 		What would you like to say about them?
-		<textarea ng-model="recognitionText"></textarea>
+		<select name="users" ng-model="badge_name" >
+		  <option ng-repeat="badge in badges">{{badge}}</option>
+		</select>
 	<button type="submit">RECOGNIZE</button>
 </form>
