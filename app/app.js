@@ -7,7 +7,8 @@ angular.module('helloHero', [
     'homeModule',
     'layoutModule',
     'reportModule',
-    'profileModule'
+    'profileModule',
+    'errorModule'
 ])
     .config(['$stateProvider', '$urlRouterProvider',
         function ($stateProvider, $urlRouterProvider) {
@@ -36,6 +37,12 @@ angular.module('helloHero', [
                     controller: 'ProfileController',
                     controllerAs: 'vm'
                 })
+                .state('error', {
+                    url: '/error',
+                    templateUrl: 'components/error/error.html',
+                    controller: 'ErrorController',
+                    controllerAs: 'vm'
+                })
                 ;
         }]);
 
@@ -50,5 +57,10 @@ function appRun($state, $rootScope, Auth) {
             }
 
         }
+    });
+
+    $rootScope.$on('$stateChangeError', function (event) {
+        event.preventDefault();
+        $state.go('error');
     });
 }

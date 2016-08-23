@@ -3,7 +3,7 @@
 
     angular
         .module('profileModule')
-        .profileService('profileService', profileService);
+        .factory('profileService', profileService);
 
     /** @ngInject */
     function profileService(){
