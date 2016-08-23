@@ -8,6 +8,7 @@ angular.module('dashBoardController', [])
 	$scope.isLoggedIn = Auth.isAuth();
 	$scope.alreadyExists = false;
 	$scope.users = [];
+	$scope.badges = ['Brilliant!', 'Exceptional!', 'Innovative', 'Committed', 'Skillful', 'Resourceful', 'Timesaver', 'Lifesaver']
 
 	
 
@@ -41,19 +42,24 @@ angular.module('dashBoardController', [])
 	};
 
 	$scope.submitRecognitionForm = function () {
-		console.log('hi')
-		var badge = {
-			text: $scope.recognitionText,
-			date: new Date (),
-			initiator: $window.localStorage.getItem('user')
-		};
-		User.giveRecognition(badge, $scope.receiver).then(function (response) {
-			console.log(response)
-			if(response.status === 201) {
-				alert('success!');
-			}
-		});
-	};
+		User.getUser($scope.receiver).then(function (response) {
+			var badge = {
+				name: $scope.badge_name,
+				date: new Date (),
+				initiator: $window.localStorage.getItem('user')
+			};
+			var receiver = response.data;
+			receiver.badges.push(badge);
+			User.updateUser(receiver).then(function (response) {
+				if(response.status === 201) {
+					alert('success!');
+				}
+				
+			});
+		}).catch(function (error) {
+			console.log('error finding receiver');
+		});		
+	}
 
 	if(!$scope.isAuth()){
 	  $window.localStorage.setItem('com.helloHero', '');
