@@ -7,23 +7,18 @@
     ])
     .controller('LayoutController', LayoutController);
 
-    LayoutController.$inject = ['$uibModal', 'Auth'];
+    LayoutController.$inject = ['$uibModal'];
 
     /** @ngInject */
-    function LayoutController($uibModal, Auth) {
+    function LayoutController($uibModal) {
         var vm = this;
         vm.templateUrl = 'components/login/signinDialog.html';
         vm.showLoginForm = showLoginForm;
-        vm.isLoggedIn = isLoggedIn;
-        vm.signOut = signOut;
 
-        function isLoggedIn(){
-            return Auth.isAuth();
-        }
+        // init();
 
-        function signOut(){
-            Auth.signout();   
-        }
+        // function init() {
+        // }
 
         function showLoginForm() {
             //Show the modal
