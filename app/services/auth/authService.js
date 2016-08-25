@@ -34,6 +34,10 @@ angular.module('authService', [])
     return !!$window.localStorage.getItem('com.helloHero');
   };
 
+  var userName = function(){
+      return $window.localStorage.getItem('user');
+  };
+
   var signout = function () {
     $window.localStorage.removeItem('com.helloHero');
     $location.path('/signin');
@@ -44,6 +48,7 @@ angular.module('authService', [])
     signin: signin,
     signup: signup,
     isAuth: isAuth,
-    signout: signout
+    signout: signout,
+    userName: userName
   };
 }]);

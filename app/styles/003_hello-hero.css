@@ -205,7 +205,7 @@ nav {
 
 	
 .navbar-brand:before {
-	background: rgba(0, 0, 0, 0) url("../img/logo_hello-hero_sm.png") no-repeat scroll;
+	background: rgba(0, 0, 0, 0) url("../assets/logo_hello-hero_sm.png") no-repeat scroll;
 	content: "";
 	float: left;
 	height: 120px;
@@ -265,7 +265,7 @@ main {
 /* 3A. Homepage - Header
 -------------------------------------------------- */
 header {
-	background: url("../img/img_superherokid.jpg") no-repeat center left / 100% auto;
+	background: url("../assets/img_superherokid.jpg") no-repeat center left / 100% auto;
 	height: 600px;
 	position: relative;
 	-webkit-transition: 0.3s ease all;
@@ -686,9 +686,9 @@ a > .label {
 	background: rgb(32,84,147);
 }
 
-a > .label:hover {
+/*a > .label:hover {
 	background: 
-}
+}*/
 
 
 /*-------------------------------------------------- 

@@ -1,7 +1,7 @@
 'use strict';
 
 describe('LoginController', function () {
-  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, $uibModalInstance, vm;
+  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, $uibModalInstance, vm, toastr;
 
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
@@ -25,6 +25,7 @@ describe('LoginController', function () {
     $httpBackend = $injector.get('$httpBackend');
     Auth = $injector.get('Auth');
     $uibModalInstance = fakeModal; //$injector.get('$uibModalInstance');
+    toastr = $injector.get('toastr');
     $scope = $rootScope.$new();
 
     var $controller = $injector.get('$controller');
@@ -36,7 +37,8 @@ describe('LoginController', function () {
         $window: $window,
         $location: $location,
         Auth: Auth,
-        $uibModalInstance: $uibModalInstance
+        $uibModalInstance: $uibModalInstance,
+        toastr: toastr
       });
     };
 

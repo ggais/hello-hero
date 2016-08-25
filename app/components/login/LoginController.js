@@ -2,14 +2,15 @@
 	'use strict';
 
 	angular.module('loginController', [
-		'ui.bootstrap'
+		'ui.bootstrap',
+		'toastr'
 	])
-	.controller('LoginController', LoginController);
+		.controller('LoginController', LoginController);
 
-	LoginController.$inject = ['$scope', '$window', '$location', 'Auth', '$uibModalInstance'];
+	LoginController.$inject = ['$scope', '$window', '$location', 'Auth', '$uibModalInstance', 'toastr'];
 
 	/** @ngInject */
-	function LoginController($scope, $window, $location, Auth, $uibModalInstance) {
+	function LoginController($scope, $window, $location, Auth, $uibModalInstance, toastr) {
 		var vm = this;
 
 		vm.user = {};
@@ -29,7 +30,7 @@
 					$window.localStorage.setItem('user', vm.user.username);
 					vm.validUser = true;
 					vm.closeModal();
-					$location.path('/dashBoard');
+					$location.path('/profile');
 				})
 				.catch(function (error) {
 					//console.log('boutha')
@@ -39,6 +40,7 @@
 						vm.lockedOut = false;
 					}
 					console.error(error);
+					showError("Email and/or Password is invalid!", "User not found!");
 				});
 		};
 
@@ -50,10 +52,11 @@
 					$window.localStorage.setItem('com.helloHero', token);
 					$window.localStorage.setItem('user', vm.user_signup.username);
 					vm.closeModal();
-					$location.path('/dashBoard');
+					$location.path('/profile');
 				})
 				.catch(function (error) {
 					console.error(error);
+					showError("Please use a different Email Address to create a new account or login using the existing account!", "Account already exists!");
 					console.log('user exists already');
 					vm.alreadyExists = true;
 				});
@@ -63,15 +66,22 @@
 			$uibModalInstance.dismiss();
 		};
 
-		if ($location.$path === '/logout') {
+		if ($location.$$path === '/logout') {
 			$window.localStorage.setItem('com.helloHero', '');
 			$window.localStorage.setItem('user', '');
 			$location.path('/signin');
 		}
 
-		init();
+		function showError(message, caption) {
+			if(!caption){
+				caption = "Error";
+			}
 
-		function init() {
+			toastr.clear();
+			toastr.error(message, caption, {
+				closeButton: true,
+				timeOut: 0
+			});
 		}
 
 	}
