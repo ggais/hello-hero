@@ -6,11 +6,14 @@ describe('LoginController', function () {
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('helloHero'));
+  beforeEach(module(function ($urlRouterProvider) {
+    $urlRouterProvider.deferIntercept();
+  }));
   beforeEach(inject(function ($injector) {
 
-    var fakeModal ={
-       dismiss: function(){
-       }
+    var fakeModal = {
+      dismiss: function () {
+      }
     };
 
     //spyOn($uibModalInstance, 'dismiss').and.returnValue(fakeModal);
@@ -23,7 +26,6 @@ describe('LoginController', function () {
     Auth = $injector.get('Auth');
     $uibModalInstance = fakeModal; //$injector.get('$uibModalInstance');
     $scope = $rootScope.$new();
-
 
     var $controller = $injector.get('$controller');
 
