@@ -63,7 +63,7 @@
 			$uibModalInstance.dismiss();
 		};
 
-		if ($location.$$path === '/logout') {
+		if ($location.$path === '/logout') {
 			$window.localStorage.setItem('com.helloHero', '');
 			$window.localStorage.setItem('user', '');
 			$location.path('/signin');
