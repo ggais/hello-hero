@@ -33,21 +33,18 @@
 </head>
 
 <body>
-    <div id="page-home" class="wrapper">
-        <!-- Navigation -->
-        <div data-ng-include="'components/layout/layout.html'"></div>
-        <main>
-            <div ui-view>
-                <!--[if lt IE 7]>
+    <!-- Navigation -->
+    <div data-ng-include="'components/layout/layout.html'"></div>
+    <main ui-view>  
+            <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-            </div>
-        </main>
+    </main>
 
-        <footer>
-            <p>Powered by the <a href="#" title="Visit the Inserso Team website">Inserso Team</a>.</p>
-        </footer>
-    </div>
+    <footer>
+        <p>Powered by the <a href="#" title="Visit the Inserso Team website">Inserso Team</a>.</p>
+    </footer>
+
 
     <!-- bower:js -->
     <!-- endinject -->
