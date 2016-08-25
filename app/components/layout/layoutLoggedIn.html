@@ -1,0 +1,60 @@
+<div class="wrapper page-user" ng-app="layoutModule" ng-controller="LayoutController as vm" ng-show="vm.isLoggedIn()">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container-fluid">
+
+            <div class="navbar navbar-inverse">
+                <span class="sr-only">Navigation</span>
+
+
+                <!-- Application Navigation -->
+                <div id="nav_Site" class="pull-left">
+                    <ul class="nav nav-pills nav-lvl1">
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit the Directory"><span class="glyphicon glyphicon-th-list"></span> <span class="nav-text">Directory</span></a>
+                        </li>
+
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit Wall of Heroes"><span class="glyphicon glyphicon-th-large"></span> <span class="nav-text">Wall of Heroes</span></a>
+                        </li>
+
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="See My Recognition"><span class="glyphicon glyphicon-eye-open"></span> <span class="nav-text">My Recognition</span></a>
+                        </li>
+
+                        <li>
+                            <a href="recognize.html" class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Recognize a Hero"><span class="glyphicon glyphicon-star"></span> <span class="nav-text">Recognize a Hero</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- // End Application Navigation -->
+
+
+                <!-- User Navigation -->
+                <div id="nav_User" class="pull-right">
+                    <ul class="nav nav-pills nav-lvl1">
+                        <li>
+                            <a ui-sref="profile" data-toggle="tooltip" data-placement="bottom" title="Visit My Profile"><span class="glyphicon glyphicon-user"></span>  <span class="nav-text">Profile</span></a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  title="Visit My Admin"><span class="glyphicon glyphicon-cog"></span>  <span class="nav-text">Admin</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a ui-sref="report2">Badges Received Report</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a ng-click="vm.signOut()" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign Off"><span class="glyphicon glyphicon-off"></span> <span class="nav-text">Log Out</span></a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- // End User Navigation -->
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- // End Navigation -->
+</div>
