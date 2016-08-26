@@ -30,6 +30,7 @@
 					$window.localStorage.setItem('user', vm.user.username);
 					vm.validUser = true;
 					vm.closeModal();
+					toastr.clear();
 					$location.path('/profile');
 				})
 				.catch(function (error) {
@@ -52,6 +53,7 @@
 					$window.localStorage.setItem('com.helloHero', token);
 					$window.localStorage.setItem('user', vm.user_signup.username);
 					vm.closeModal();
+					toastr.clear();
 					$location.path('/profile');
 				})
 				.catch(function (error) {
