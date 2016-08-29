@@ -25,6 +25,11 @@ angular.module('helloHero', [
                     templateUrl: 'components/dashBoard/dashBoard.html',
                     controller: 'DashBoardController'
                 })
+                .state('recognize', {
+                    url: '/recognize',
+                    templateUrl: 'components/dashBoard/recognize.html',
+                    controller: 'DashBoardController'
+                })
                 .state('report', {
                     url: '/report',
                     templateUrl: 'components/reports/report.html',
