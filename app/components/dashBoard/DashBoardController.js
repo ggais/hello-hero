@@ -77,6 +77,7 @@ angular.module('dashBoardController', [
 		};
 
 		$scope.clearAll = function(){
+			toastr.clear();
 			$scope.selectedHeros = [];
 			$scope.selectedBadge = null;
 			$scope.recognitionMessage = '';
@@ -94,9 +95,13 @@ angular.module('dashBoardController', [
 		$scope.submitRecognition = function () {
 			toastr.clear();
 			$scope.messages = [];
-			angular.forEach($scope.selectedHeros, function (value, key) {
-				saveBadge(value.username, $scope.selectedBadge);
-			});
+
+			if ($scope.selectedHeros.length > 0 && $scope.selectedBadge && $scope.selectedBadge !== '')
+			{
+				angular.forEach($scope.selectedHeros, function (value, key) {
+					saveBadge(value.username, $scope.selectedBadge);
+				});
+			}
 		};
 
 		function saveBadge(username, badgename) {
@@ -176,7 +181,7 @@ angular.module('dashBoardController', [
 
 			toastr.success(message, caption, {
 				closeButton: true,
-				timeOut: 0
+				timeOut: 5000
 			});
 		}
 
