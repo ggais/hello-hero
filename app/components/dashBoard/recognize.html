@@ -39,7 +39,7 @@
                           	<a ng-repeat="hero in selectedHeros"><span class="label label-primary">{{hero.username}} <span class=" glyphicon glyphicon-remove link" ng-click="removeHero($index)"></span></span>&nbsp;</a>
                           </div>
                           <div ng-show="(recognizeForm.$submitted)" class="text-danger bold">
-                            <div ng-hide="selectedHeros.length">No Hero chosen. Choose atleast one hero and click +</div>
+                            <div ng-hide="selectedHeros.length">No heero chosen. Choose atleast one hero and click +</div>
                          </div>
                         </div>
                     
@@ -48,22 +48,18 @@
                
                 <div class="well">
                     <div class="row">
-                        
                         <div class="col-sm-6">
                             <div class="icn-circle icn-primary icn-number icn-sm pull-left">2</div>
                             <h3><label>Choose the badge</label></h3>
                         </div>
-                        
                         <div class="col-sm-6">
                           <div class="form-group">
                           	<div class="input-group">
                               <div class="hero-badge" ng-repeat="badge in badgesLookup">
-                                  <div ng-class="selectedBadge == badge.name ? 'highlight-button': 'no-highlight-button'">
-                                    <button class="icn-circle icn-default icn-badge select" ng-click = "selectBadge(badge.name)">
+                                    <button type="button" ng-class="selectedBadge == badge.name ? 'icn-circle icn-default icn-badge select': 'icn-circle icn-default icn-badge'" class="icn-circle icn-default icn-badge" ng-click = "selectBadge(badge.name)">
                                         <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">
                                         <span class="icn-badge-text">{{badge.name}}</span>
                                     </button>
-                                  </div>
                               </div>
                           	</div>
                         </div>
