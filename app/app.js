@@ -25,6 +25,11 @@ angular.module('helloHero', [
                     templateUrl: 'components/dashBoard/dashBoard.html',
                     controller: 'DashBoardController'
                 })
+                .state('recognize', {
+                    url: '/recognize',
+                    templateUrl: 'components/dashBoard/recognize.html',
+                    controller: 'DashBoardController'
+                })
                 .state('report', {
                     url: '/report',
                     templateUrl: 'components/reports/report.html',
@@ -59,7 +64,7 @@ function appRun($state, $rootScope, Auth) {
         if (toState.name === 'home') {
             if (Auth.isAuth()) {
                 event.preventDefault();
-                $state.go('profile');
+                $state.go('recognize');
             }
 
         }

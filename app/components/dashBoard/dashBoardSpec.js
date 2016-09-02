@@ -1,12 +1,17 @@
 'use strict';
 
 describe('DashController', function () {
-  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, User;
+  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth, User, toastr, $uibModalInstance;
 
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('helloHero'));
   beforeEach(inject(function ($injector) {
+
+    var fakeModal = {
+      dismiss: function () {
+      }
+    };
 
     // mock out our dependencies
     $rootScope = $injector.get('$rootScope');
@@ -15,6 +20,8 @@ describe('DashController', function () {
     $httpBackend = $injector.get('$httpBackend');
     Auth = $injector.get('Auth');
     User = $injector.get('User');
+    toastr = $injector.get('toastr');
+    $uibModalInstance = fakeModal;
 
     $scope = $rootScope.$new();
 
@@ -27,7 +34,9 @@ describe('DashController', function () {
         $window: $window,
         $location: $location,
         Auth: Auth,
-        User: User
+        User: User,
+        toastr: toastr,
+        $uibModalInstance: $uibModalInstance
       });
     };
 

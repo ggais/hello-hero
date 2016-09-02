@@ -84,7 +84,7 @@ $(function () {
                         </li>
                         
                         <li>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit My Admin"><span class="glyphicon glyphicon-cog"></span>  <span class="nav-text">Admin</span></a>
+                            <a href="admin_report.html" data-toggle="tooltip" data-placement="bottom" title="Visit My Admin"><span class="glyphicon glyphicon-cog"></span>  <span class="nav-text">Admin</span></a>
                         </li>
                         <li>
                             <a href="index.html" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign Off"><span class="glyphicon glyphicon-off"></span> <span class="nav-text">Log Out</span></a>
@@ -124,6 +124,7 @@ $(function () {
                                 <button class="btn btn-default" type="button" aria-label="Add">
                                 	<span class="glyphicon glyphicon-plus"></span><span class="sr-only">Add</span>
                                 </button>
+                                
                                 </div>
                             </div>
                             
@@ -171,11 +172,103 @@ $(function () {
                                     <span class="icn-badge-text">Lifesaver</span>
                                 </button>
                               </div>
+                              
+                              
+                              <div class="hero-badge">
+                                <button type="button" class="icn-circle icn-default icn-badge" data-toggle="modal" data-target="#AddBadge">
+                                    Add More
+                                </button>
+                                
+                                
+                              </div>
+                              
+                              
                           	</div>
                           
-                        
-                          
-                        </div>
+                        	<!-- Modal Pop Up for Add More Badge -->
+                            <div class="modal fade" id="AddBadge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h2 class="modal-title" id="myModalLabel">Add badge</h2>
+                                  </div>
+                                  
+                                  <div class="modal-body">
+                                      
+                                      <div class="form-group">
+                                        <div class="input-group">
+                                        
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge select">
+                                                <img src="_inc/img/hero_badge_brilliant.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Brilliant</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_innovative.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Innovative</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_lifesaver.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Lifesaver</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_exceptional.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Exceptional</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_committed.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Committed</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_skillful.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Skillful</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_resourceful.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Resourceful</span>
+                                            </button>
+                                          </div>
+                                          
+                                          <div class="hero-badge">
+                                            <button class="icn-circle icn-default icn-badge">
+                                                <img src="_inc/img/hero_badge_timesaver.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                                <span class="icn-badge-text">Timesaver</span>
+                                            </button>
+                                          </div>
+                                          
+                                          
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End Modal Pop Up for Add More Badge -->
+                            
+                            
+                          </div>
                     	</div>
                     </div>
                 
@@ -214,10 +307,9 @@ $(function () {
                     
                     </div>
                 </div>
+                	
 			</form>
-            
         </div>
-        
     </section>
     
 	<!-- // End Section for Main Content -->

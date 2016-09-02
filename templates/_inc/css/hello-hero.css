@@ -53,15 +53,24 @@ Muted Color: Gray, #aeb0b5, rgb(174,176,181)
 /*-------------------------------------------------- 
 	1. BODY
 -------------------------------------------------- */
-
 html {
-	background: rgb(32,84,147);
+	height: 100%; 
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
 	background: rgb(255,255,255);
 	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 	font-size: 15px;
+	padding-bottom: 50px;
+	position: relative;
+	min-height: 100%;
 }
 
 p, div {
@@ -97,8 +106,12 @@ h2, .h2 {
 
 h3, .h3 {
 	font-size: 1.4em;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.4em;
+}
+
+h4, .h4 {
+	font-weight: 700;
 }
 
 a {
@@ -259,7 +272,7 @@ nav {
 
 main {
 	position: relative;
-	margin-top: 80px;
+	/*margin-top: 80px;*/
 }
 
 /* 3A. Homepage - Header
@@ -513,7 +526,10 @@ footer {
 	color: #fff;
 	font-size: 1.2em;
 	padding: 20px;
-	position: relative;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
 	text-align: center;
 }
 
@@ -564,7 +580,7 @@ footer {
 .btn-default:active,
 .btn-default:active:focus,
 .btn-default:active:hover, 
-.btn-default:focus, {
+.btn-default:focus {
 	background: rgb(245,245,245);
 }
 
@@ -607,6 +623,7 @@ a .icn-primary:hover {
 
 .form-recognize .well h3 {
     margin-top: 18px;
+	font-weight: 700;
 }
 
 /* 5B. Modal Pop Up
@@ -684,10 +701,6 @@ a > .label {
 
 .label-primary {
 	background: rgb(32,84,147);
-}
-
-a > .label:hover {
-	background: 
 }
 
 
