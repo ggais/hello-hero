@@ -12,7 +12,7 @@
 	/** @ngInject */
 	function LoginController($scope, $window, $location, Auth, $uibModalInstance, toastr) {
 		var vm = this;
-
+		var defaultPage = "/recognize";
 		vm.user = {};
 		vm.validUser = true;
 		vm.tries = 6;
@@ -31,7 +31,7 @@
 					vm.validUser = true;
 					vm.closeModal();
 					toastr.clear();
-					$location.path('/profile');
+					$location.path(defaultPage);
 				})
 				.catch(function (error) {
 					//console.log('boutha')
@@ -54,7 +54,7 @@
 					$window.localStorage.setItem('user', vm.user_signup.username);
 					vm.closeModal();
 					toastr.clear();
-					$location.path('/profile');
+					$location.path(defaultPage);
 				})
 				.catch(function (error) {
 					console.error(error);

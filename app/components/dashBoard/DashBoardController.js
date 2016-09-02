@@ -121,7 +121,7 @@ angular.module('dashBoardController', [
 		};
 
 		$scope.closeModal = function () {
-			if (badgeModalInstance !== null){
+			if (badgeModalInstance !== null) {
 				badgeModalInstance.dismiss();
 			}
 		};
@@ -131,37 +131,7 @@ angular.module('dashBoardController', [
 			return (badgeIndex >= 0) ? "icn-circle icn-default icn-badge select" : "icn-circle icn-default icn-badge";
 		};
 
-		function saveBadge(username) {
-			var messageCaption = "Recognition: ";
-			User.getUser(username).then(function (response) {
-				var receiver = response.data;
 
-				angular.forEach($scope.selectedBadges, function(badgeObj, badgeKey){
-
-					var badge = {
-						name: badgeObj.name,
-						date: new Date(),
-						initiator: $window.localStorage.getItem('user')
-					};
-
-					messageCaption = messageCaption + badgeObj.name + " ";
-					receiver.badges.push(badge);	
-				});
-
-				User.updateUser(receiver).then(function (response) {
-
-					if (response.status === 201) {
-						//$scope.messages.push(username + ": successfully recognized");
-						showSuccess(username + ": successfully recognized!", messageCaption);
-					}
-
-				});
-			}).catch(function (error) {
-				console.log('error finding receiver');
-				showError(username + ": recognition failed!", messageCaption);
-				//$scope.messages.push(username + ": not found!");
-			});
-		}
 
 		$scope.submitRecognitionForm = function () {
 			User.getUser($scope.receiver).then(function (response) {
@@ -183,6 +153,15 @@ angular.module('dashBoardController', [
 			});
 		};
 
+		$scope.showBadgeModal = function () {
+            //Show the modal
+            badgeModalInstance = $uibModal.open({
+                templateUrl: "badgeModalContent.html",
+				scope: $scope
+                //size: 'lg'
+            });
+        };
+
 		if (!$scope.isAuth()) {
 			$window.localStorage.setItem('com.helloHero', '');
 			$location.path('/signin');
@@ -193,6 +172,38 @@ angular.module('dashBoardController', [
 		function loadBadges() {
 			angular.forEach($scope.badges, function (value, key) {
 				$scope.badgesLookup.push({ name: value, imagePath: $scope.badgesImagePath[key] });
+			});
+		}
+
+		function saveBadge(username) {
+			var messageCaption = "Recognition(s): ";
+			User.getUser(username).then(function (response) {
+				var receiver = response.data;
+
+				angular.forEach($scope.selectedBadges, function (badgeObj, badgeKey) {
+
+					var badge = {
+						name: badgeObj.name,
+						date: new Date(),
+						initiator: $window.localStorage.getItem('user')
+					};
+
+					messageCaption = messageCaption + badgeObj.name + " ";
+					receiver.badges.push(badge);
+				});
+
+				User.updateUser(receiver).then(function (response) {
+
+					if (response.status === 201) {
+						//$scope.messages.push(username + ": successfully recognized");
+						showSuccess(username + ": successfully recognized!", messageCaption);
+					}
+
+				});
+			}).catch(function (error) {
+				console.log('error finding receiver');
+				showError(username + ": recognition failed!", messageCaption);
+				//$scope.messages.push(username + ": not found!");
 			});
 		}
 
@@ -226,16 +237,5 @@ angular.module('dashBoardController', [
 			}
 			return -1;
 		}
-
-		$scope.showBadgeModal = function() {
-            //Show the modal
-            badgeModalInstance = $uibModal.open({
-                templateUrl: "badgeModalContent.html",
-				scope: $scope
-                //controller: 'LoginController',
-                //controllerAs: 'vm'
-                //size: 'lg'
-            });
-        };
 
 	}]);

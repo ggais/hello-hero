@@ -64,7 +64,7 @@ function appRun($state, $rootScope, Auth) {
         if (toState.name === 'home') {
             if (Auth.isAuth()) {
                 event.preventDefault();
-                $state.go('profile');
+                $state.go('recognize');
             }
 
         }

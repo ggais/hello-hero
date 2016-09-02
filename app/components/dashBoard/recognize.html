@@ -117,26 +117,23 @@
     </section>
     <script type="text/ng-template" id="badgeModalContent.html">
          <!-- Modal Pop Up for Add More Badge -->
-                            
-                              
-                                
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeModal()"><span aria-hidden="true">&times;</span></button>
-                                    <h2 class="modal-title" id="myModalLabel">Add badge</h2>
-                                  </div>
+                                    
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeModal()"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel">Add badge</h2>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="hero-badge" ng-repeat="badge in badgesLookup">
+                        <button type="button" ng-class="getBadgeCssClass(badge.name)"  ng-click = "selectBadge(badge.name)">
+                            <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">
+                            <span class="icn-badge-text">{{badge.name}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
                                   
-                                  <div class="modal-body">
-                                      
-                                     <div class="hero-badge" ng-repeat="badge in badgesLookup">
-                                    <button type="button" ng-class="getBadgeCssClass(badge.name)"  ng-click = "selectBadge(badge.name)">
-                                        <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">
-                                        <span class="icn-badge-text">{{badge.name}}</span>
-                                    </button>
-                              </div>
-                                      
-                                  </div>
-                                  
-                               
-                            
-                            <!-- End Modal Pop Up for Add More Badge -->
+        <!-- End Modal Pop Up for Add More Badge -->
 </script>
