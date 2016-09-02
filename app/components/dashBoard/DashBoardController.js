@@ -1,8 +1,9 @@
 angular.module('dashBoardController', [
-		'angucomplete-alt',
-		'toastr'
-		])
-	.controller('DashBoardController', ['$scope', '$window', '$location', 'Auth', 'User', 'toastr', function ($scope, $window, $location, Auth, User, toastr) {
+	'angucomplete-alt',
+	'toastr',
+	'ui.bootstrap'
+])
+	.controller('DashBoardController', ['$scope', '$window', '$location', 'Auth', 'User', 'toastr', '$uibModal', function ($scope, $window, $location, Auth, User, toastr, $uibModal) {
 		$scope.user = {};
 		$scope.user_signup = {};
 		$scope.validUser = true;
@@ -22,7 +23,9 @@ angular.module('dashBoardController', [
 		$scope.selectedHeros = [];
 		$scope.messages = [];
 		$scope.selectedBadge = null;
+		$scope.selectedBadges = [];
 		$scope.recognitionMessage = '';
+		var badgeModalInstance = null;
 
 		$scope.init = function () {
 			User.getUser($window.localStorage.getItem('user')).then(function (response) {
@@ -52,7 +55,20 @@ angular.module('dashBoardController', [
 		};
 
 		$scope.selectBadge = function (badgeName) {
+			$scope.closeModal();
+			var existingBadgeIndex = getBadgeIndex(badgeName);
+			if (existingBadgeIndex >= 0) {
+				$scope.selectedBadges.splice(existingBadgeIndex, 1);
+				return;
+			}
+
 			$scope.selectedBadge = badgeName;
+
+			angular.forEach($scope.badgesLookup, function (value, key) {
+				if (value.name == badgeName) {
+					$scope.selectedBadges.push(value);
+				}
+			});
 		};
 
 		$scope.isAuth = function () {
@@ -76,10 +92,11 @@ angular.module('dashBoardController', [
 			$scope.selectedHeros.splice(index, 1);
 		};
 
-		$scope.clearAll = function(){
+		$scope.clearAll = function () {
 			toastr.clear();
 			$scope.selectedHeros = [];
 			$scope.selectedBadge = null;
+			$scope.selectedBadges = [];
 			$scope.recognitionMessage = '';
 		};
 
@@ -96,25 +113,41 @@ angular.module('dashBoardController', [
 			toastr.clear();
 			$scope.messages = [];
 
-			if ($scope.selectedHeros.length > 0 && $scope.selectedBadge && $scope.selectedBadge !== '')
-			{
+			if ($scope.selectedHeros.length > 0 && $scope.selectedBadge && $scope.selectedBadge !== '') {
 				angular.forEach($scope.selectedHeros, function (value, key) {
-					saveBadge(value.username, $scope.selectedBadge);
+					saveBadge(value.username);
 				});
 			}
 		};
 
-		function saveBadge(username, badgename) {
-			var messageCaption = "Recognition: " + badgename;
-			User.getUser(username).then(function (response) {
-				var badge = {
-					name: badgename,
-					date: new Date(),
-					initiator: $window.localStorage.getItem('user')
-				};
+		$scope.closeModal = function () {
+			if (badgeModalInstance !== null){
+				badgeModalInstance.dismiss();
+			}
+		};
 
+		$scope.getBadgeCssClass = function (badgeName) {
+			var badgeIndex = getBadgeIndex(badgeName);
+			return (badgeIndex >= 0) ? "icn-circle icn-default icn-badge select" : "icn-circle icn-default icn-badge";
+		};
+
+		function saveBadge(username) {
+			var messageCaption = "Recognition: ";
+			User.getUser(username).then(function (response) {
 				var receiver = response.data;
-				receiver.badges.push(badge);
+
+				angular.forEach($scope.selectedBadges, function(badgeObj, badgeKey){
+
+					var badge = {
+						name: badgeObj.name,
+						date: new Date(),
+						initiator: $window.localStorage.getItem('user')
+					};
+
+					messageCaption = messageCaption + badgeObj.name + " ";
+					receiver.badges.push(badge);	
+				});
+
 				User.updateUser(receiver).then(function (response) {
 
 					if (response.status === 201) {
@@ -164,7 +197,7 @@ angular.module('dashBoardController', [
 		}
 
 		function showError(message, caption) {
-			if(!caption){
+			if (!caption) {
 				caption = "Error";
 			}
 
@@ -175,7 +208,7 @@ angular.module('dashBoardController', [
 		}
 
 		function showSuccess(message, caption) {
-			if(!caption){
+			if (!caption) {
 				caption = "Error";
 			}
 
@@ -184,5 +217,25 @@ angular.module('dashBoardController', [
 				timeOut: 5000
 			});
 		}
+
+		function getBadgeIndex(badgeName) {
+			for (var i = 0; i < $scope.selectedBadges.length; i++) {
+				if ($scope.selectedBadges[i].name == badgeName) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		$scope.showBadgeModal = function() {
+            //Show the modal
+            badgeModalInstance = $uibModal.open({
+                templateUrl: "badgeModalContent.html",
+				scope: $scope
+                //controller: 'LoginController',
+                //controllerAs: 'vm'
+                //size: 'lg'
+            });
+        };
 
 	}]);

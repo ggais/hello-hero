@@ -39,7 +39,7 @@
                           	<a ng-repeat="hero in selectedHeros"><span class="label label-primary">{{hero.username}} <span class=" glyphicon glyphicon-remove link" ng-click="removeHero($index)"></span></span>&nbsp;</a>
                           </div>
                           <div ng-show="(recognizeForm.$submitted)" class="text-danger bold">
-                            <div ng-hide="selectedHeros.length">No heero chosen. Choose atleast one hero and click +</div>
+                            <div ng-hide="selectedHeros.length">No hero chosen. Choose atleast one hero and click +</div>
                          </div>
                         </div>
                     
@@ -55,16 +55,22 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                           	<div class="input-group">
-                              <div class="hero-badge" ng-repeat="badge in badgesLookup">
-                                    <button type="button" ng-class="selectedBadge == badge.name ? 'icn-circle icn-default icn-badge select': 'icn-circle icn-default icn-badge'" class="icn-circle icn-default icn-badge" ng-click = "selectBadge(badge.name)">
+                              <div class="hero-badge" ng-repeat="badge in selectedBadges">
+                                    <button type="button" class="icn-circle icn-default icn-badge select" ng-click = "selectBadge(badge.name)">
                                         <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">
                                         <span class="icn-badge-text">{{badge.name}}</span>
                                     </button>
                               </div>
+                               <div class="hero-badge">
+                                <button type="button" class="icn-circle icn-default icn-badge" data-toggle="modal" ng-click="showBadgeModal()">
+                                    Add More
+                                </button>
+                              </div>
                           	</div>
+                             
                         </div>
                         <div ng-show="(recognizeForm.$submitted)" class="text-danger bold">
-                            <div ng-hide="selectedBadge && selectedBadge !== ''">No badge chosen. Click a badge to choose it.</div>
+                            <div ng-hide="selectedBadges && selectedBadges.length > 0">No badge chosen. Click a badge to choose it.</div>
                          </div>
                     	</div>
                     </div>
@@ -107,6 +113,30 @@
 			</form>
             
         </div>
-        
+
     </section>
-    
+    <script type="text/ng-template" id="badgeModalContent.html">
+         <!-- Modal Pop Up for Add More Badge -->
+                            
+                              
+                                
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeModal()"><span aria-hidden="true">&times;</span></button>
+                                    <h2 class="modal-title" id="myModalLabel">Add badge</h2>
+                                  </div>
+                                  
+                                  <div class="modal-body">
+                                      
+                                     <div class="hero-badge" ng-repeat="badge in badgesLookup">
+                                    <button type="button" ng-class="getBadgeCssClass(badge.name)"  ng-click = "selectBadge(badge.name)">
+                                        <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">
+                                        <span class="icn-badge-text">{{badge.name}}</span>
+                                    </button>
+                              </div>
+                                      
+                                  </div>
+                                  
+                               
+                            
+                            <!-- End Modal Pop Up for Add More Badge -->
+</script>
