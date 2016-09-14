@@ -8,7 +8,8 @@ angular.module('helloHero', [
     'layoutModule',
     'reportModule',
     'profileModule',
-    'errorModule'
+    'errorModule',
+    'wallOfHeroesModule'
 ])
     .config(['$stateProvider', '$urlRouterProvider',
         function ($stateProvider, $urlRouterProvider) {
@@ -46,6 +47,18 @@ angular.module('helloHero', [
                     url: '/profile',
                     templateUrl: 'components/profile/profile.html',
                     controller: 'ProfileController',
+                    controllerAs: 'vm'
+                })
+                .state('myRecognition', {
+                    url: '/myRecognition',
+                    templateUrl: 'components/dashBoard/myRecognition.html',
+                    controller: 'DashBoardController',
+                    controllerAs: 'vm'
+                })
+                .state('wallOfHeroes', {
+                    url: '/wallOfHeroes',
+                    templateUrl: 'components/wallOfHeroes/wallOfHeroes.html',
+                    controller: 'WallOfHeroesController',
                     controllerAs: 'vm'
                 })
                 .state('error', {

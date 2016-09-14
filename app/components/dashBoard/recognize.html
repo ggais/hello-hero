@@ -2,7 +2,7 @@
     
     	<div class="container">
         	<form name="recognizeForm" class="form-recognize" novalidate>
-            	<h2><span class="glyphicon glyphicon-star pull-right"></span> Recognize a Hero</h2>
+            	<h1><span class="glyphicon glyphicon-star pull-right"></span> Recognize a Hero</h1>
                 <div class="well">
                     <div class="row">
                         
@@ -124,7 +124,7 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="hero-badge" ng-repeat="badge in badgesLookup">
                         <button type="button" ng-class="getBadgeCssClass(badge.name)"  ng-click = "selectBadge(badge.name)">
                             <img  ng-src="{{badge.imagePath}}" alt="Hero badge for being {{badge.name}}." title="Hero badge for being {{badge.name}}.">

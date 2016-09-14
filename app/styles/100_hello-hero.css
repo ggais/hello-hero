@@ -93,19 +93,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
-	font-weight: 400;
+	color: #205493;
+	font-size: 1.755em;
+	font-weight: 700;
 }
 
 h2, .h2 {
-	color: #205493;
-	font-size: 1.75em;
-	font-weight: 400;
+	color: #333333;
+	font-size: 1.4em;
+	font-weight: 700;
 	line-height: 1.4em;
 }
 
 h3, .h3 {
-	font-size: 1.4em;
+	font-size: 1.25em;
 	font-weight: 600;
 	line-height: 1.4em;
 }
@@ -516,6 +517,33 @@ section.content-main {
 			color: rgb(32,84,147);
 		}
 	
+	.hero-head h2 {
+		font-size: 1em;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	
+	.panel-heading .hero-avatar .thumbnail {
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 0px;
+		width: 10%;
+	}
+
+	.panel-body .hero-avatar .thumbnail {
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 0px;
+		width: 10%;
+	}
+	
+	.panel-body .hero-comment h3 {
+		margin-top: 15px;
+	}
+	
+	.hero-comment-post {
+		clear: both;
+	}
 
 /*-------------------------------------------------- 
 	4. FOOTER
@@ -621,7 +649,7 @@ a .icn-primary:hover {
 
 /* 5Aii */
 
-.form-recognize .well h3 {
+.form-recognize .well h2 {
     margin-top: 18px;
 	font-weight: 700;
 }
@@ -665,6 +693,9 @@ a .icn-primary:hover {
 	opacity: 1;
 }
 
+.form-recognize .well h2.modal-title {
+    margin-top: 0px;
+}
 
 /* 5C. Well
 -------------------------------------------------- */
@@ -1033,7 +1064,7 @@ main {
 }
 
 header {
-	background-position: center center;
+	background-position: left center;
 	height: 350px;
 }
 
