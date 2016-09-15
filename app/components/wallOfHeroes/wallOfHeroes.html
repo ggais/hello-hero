@@ -7,7 +7,7 @@
                 <div class="col-sm-8">
                 	<h1>Wall of Heroes</h1>
                     
-                    <div class="hero-post" ng-repeat="badge in vm.badges | orderBy:-badge.date | limitTo:10">
+                    <div class="hero-post" ng-repeat="badge in vm.badges | orderBy: '-date' | limitTo:10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="hero-avatar">
@@ -16,7 +16,7 @@
                                     </a>
                                 </div>
                                 <div class="hero-head"><h2>{{badge.to}} is {{badge.initiator}}'s Hero</h2></div>
-                                <div class="hero-date"><small>{{badge.date}}</small></div>
+                                <div class="hero-date"><small>{{badge.date | date: "MM/dd/yy hh:mm a"}}</small></div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
