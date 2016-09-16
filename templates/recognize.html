@@ -29,7 +29,7 @@
 <script> 
 
 $(function () {
-  $("[data-toggle="tooltip"]").tooltip()
+  $('[data-toggle="tooltip"]').tooltip()
 })
 
 </script>
@@ -61,7 +61,7 @@ $(function () {
                         </li>
                         
                         <li>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Visit Wall of Heroes"><span class="glyphicon glyphicon-th-large"></span> <span class="nav-text">Wall of Heroes</span></a>
+                            <a href="heroes_wall.html" data-toggle="tooltip" data-placement="bottom" title="Visit Wall of Heroes"><span class="glyphicon glyphicon-th-large"></span> <span class="nav-text">Wall of Heroes</span></a>
                         </li>
                         
                         <li>
@@ -107,27 +107,18 @@ $(function () {
     
     	<div class="container">
         	<form class="form-recognize">
-            	<h2><span class="glyphicon glyphicon-star pull-right"></span> Recognize a Hero</h2>
+            	<h1>Recognize a Hero</h1>
                 <div class="well">
                     <div class="row">
                         
                         <div class="col-sm-6">
                             <div class="icn-circle icn-primary icn-number icn-sm pull-left">1</div>
-                            <h3><label for="exampleSelectHero">Choose your hero</label></h3>
+                            <h2><label for="exampleSelectHero">Choose your hero</label></h2>
                         </div>
                         
                         <div class="col-sm-6">
                           <div class="form-group">
-                            <div class="input-group">
                             	<input type="text" class="form-control" id="exampleSelectHero" placeholder="Select a hero, or heroes, to recognize">
-                                <div class="input-group-btn">
-                                <button class="btn btn-default" type="button" aria-label="Add">
-                                	<span class="glyphicon glyphicon-plus"></span><span class="sr-only">Add</span>
-                                </button>
-                                
-                                </div>
-                            </div>
-                            
                           </div>
                           
                           <div class="form-group">
@@ -144,48 +135,53 @@ $(function () {
                         
                         <div class="col-sm-6">
                             <div class="icn-circle icn-primary icn-number icn-sm pull-left">2</div>
-                            <h3><label>Choose the badge</label></h3>
+                            <h2><label>Choose the badge</label></h2>
                         </div>
                         
                         <div class="col-sm-6">
                           <div class="form-group">
-                          	<div class="input-group">
                               <div class="hero-badge">
                                 <button class="icn-circle icn-default icn-badge select">
-                                    <img src="_inc/img/hero_badge_brilliant.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
-                                    <span class="icn-badge-text">Brilliant</span>
+                                    <img src="_inc/img/hero_badge_teamwork.png" alt="Hero badge for being brilliant." title="Hero badge for having teamwork.">
+                                    <span class="icn-badge-text">Teamwork</span>
                                 </button>
                               </div>
                               
                               
                               <div class="hero-badge">
                                 <button class="icn-circle icn-default icn-badge">
-                                    <img src="_inc/img/hero_badge_innovative.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
-                                    <span class="icn-badge-text">Innovative</span>
+                                    <img src="_inc/img/hero_badge_improvement.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                    <span class="icn-badge-text">Improvement</span>
                                 </button>
                               </div>
                               
                               
                               <div class="hero-badge">
                                 <button class="icn-circle icn-default icn-badge">
-                                    <img src="_inc/img/hero_badge_lifesaver.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
-                                    <span class="icn-badge-text">Lifesaver</span>
+                                    <img src="_inc/img/hero_badge_delivery.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                    <span class="icn-badge-text">Delivery</span>
                                 </button>
                               </div>
                               
                               
+                              
                               <div class="hero-badge">
+                                <button class="icn-circle icn-default icn-badge">
+                                    <img src="_inc/img/hero_badge_experiment.png" alt="Hero badge for being brilliant." title="Hero badge for being brilliant.">
+                                    <span class="icn-badge-text">Experiment</span>
+                                </button>
+                              </div>
+                              
+                              <!--<div class="hero-badge">
                                 <button type="button" class="icn-circle icn-default icn-badge" data-toggle="modal" data-target="#AddBadge">
                                     Add More
                                 </button>
                                 
                                 
-                              </div>
+                              </div>-->
                               
-                              
-                          	</div>
                           
-                        	<!-- Modal Pop Up for Add More Badge -->
+                        	<!-- Modal Pop Up for Add More Badge 
                             <div class="modal fade" id="AddBadge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -280,13 +276,18 @@ $(function () {
                         
                         <div class="col-sm-6">
                             <div class="icn-circle icn-primary icn-number icn-sm pull-left">3</div>
-                            <h3><label for="exampleRecognizeMessage">Tell them why you're recognizing them</label></h3>
+                            <h2><label for="exampleRecognizeMessage">Tell them why you're recognizing them</label></h2>
                         </div>
                         
-                        <div class="col-xs-6">
+                        <div class="col-sm-6">
                           <div class="form-group">
                             <textarea id="exampleRecognizeMessage" class="form-control" rows="2" placeholder="Tell your hero why you are recognizing them"></textarea>
                           </div>
+                          <div class="form-group">
+                          	<div><button class="btn btn-default" type="submit">Add an Attachment (Optional)</button></div>
+                            <div>Attached: <span  class="label label-primary">design_file.png</span></div>
+                          </div>
+                          
                         </div>
                     
                     </div>
@@ -297,7 +298,7 @@ $(function () {
                         
                         <div class="col-sm-6">
                             <div class="icn-circle icn-primary icn-number icn-sm pull-left">4</div>
-                            <h3>Send recognition</h3>
+                            <h2>Send recognition</h2>
                         </div>
                         
                         <div class="col-sm-6 text-right">
